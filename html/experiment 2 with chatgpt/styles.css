@@ -1,0 +1,200 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Arial", sans-serif;
+    color: #27374d; /* Dark Blue */
+    line-height: 1.6;
+    background-image: url(yes.jpeg);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.wrapper {
+    flex: 1;
+}
+
+/* Header */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    position: sticky;
+    top: 0;
+    background: #344e41;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+.logo {
+    font-size: 1.8rem;
+    color: #a3b18a;
+    font-weight: bold;
+}
+
+.navbar ul {
+    display: flex;
+    list-style: none;
+}
+
+.navbar ul li {
+    margin-left: 1.5rem;
+}
+
+.navbar ul li a {
+    text-decoration: none;
+    color: #dad7cd;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.navbar ul li a:hover {
+    color: #588157;
+}
+
+.hamburger-menu {
+    display: none;
+    font-size: 1.8rem;
+    cursor: pointer;
+}
+
+/* Hero Section */
+.hero {
+    color: #a3b18a;
+    text-align: center;
+    padding: 4rem 1rem;
+    margin-top: 200px;
+}
+
+.hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+    color: #dad7cd;
+}
+
+.cta-button {
+    padding: 0.8rem 2rem;
+    background: #3a5a40;
+    color: #a3b18a;
+    border: 2px solid #344e41;
+    border-radius: 25px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s, color 0.3s;
+}
+
+.cta-button:hover {
+    background: #a3b18a; /* Dark Blue */
+    color: #344e41; /* Medium Blue */
+}
+
+/* Services Section */
+.services {
+    padding: 3rem 1rem;
+    text-align: center;
+}
+
+.services h2 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    color: #588157; /* Dark Blue */
+}
+
+.service-list {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.service-item {
+    background: #a3b18a; /* Light Blue */
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+    width: 30%;
+    min-width: 250px;
+    text-align: center;
+    border: 2px solid #3a5a40; /* Medium Blue */
+}
+
+.service-item h3 {
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+    color: #3a5a40; /* Dark Blue */
+}
+
+.service-item p {
+    font-size: 1rem;
+    color: #588157; /* Medium Dark Blue */
+}
+
+/* Testimonials Section */
+.testimonials {
+    background-color: #dad7cd; /* Medium Blue */
+    padding: 2rem 1rem;
+    text-align: center;
+}
+
+.testimonials h2 {
+    color: #3a5a40; /* Dark Blue */
+    margin-bottom: 1rem;
+}
+
+.testimonials blockquote {
+    font-style: italic;
+    margin: 0 auto;
+    max-width: 600px;
+    color: #3a5a40; /* Dark Blue */
+}
+
+.testimonials cite {
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    color: #dad7cd; /* Medium Dark Blue */
+}
+
+/* Footer */
+.footer {
+    text-align: center;
+    padding: 1rem;
+    background: #344e41;
+    color: #dde6ed; /* Light Blue */
+    margin-top: auto;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .navbar {
+        display: none;
+    }
+
+    .hamburger-menu {
+        display: block;
+    }
+
+    .service-list {
+        flex-direction: column;
+    }
+
+    .hero h1 {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero p {
+        font-size: 1rem;
+    }
+}
