@@ -28,7 +28,7 @@ if x == "a":
             game()
         else:
             print()
-            print("tak neotravuj a zmyzni kkt. :(")
+            print("tak neotravuj a zmyzni. :(")
             break
 else:
     print()
