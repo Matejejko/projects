@@ -1,0 +1,172 @@
+:root {
+    --text: #eeeee9;
+    --background: #161611;
+    --primary: #c3c5b3;
+    --secondary: #475945;
+    --accent: #86a288;
+}
+body,
+h1,
+h2,
+p,
+ul,
+li,
+a,
+button {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body and Container */
+body {
+    font-family: "Arial", sans-serif;
+    background-color: var(--background); /* Deep Black */
+    color: var(--text); /* Light Grey for Text */
+    line-height: 1.6;
+    margin: 0;
+}
+
+.container {
+    text-align: center;
+    padding: 2rem;
+}
+
+/* Header */
+header {
+    background-color: var(--background); /* Darker Background */
+    color: var(--text); /* Primary Accent */
+    padding: 2rem 0;
+}
+
+header h1 {
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+}
+
+header p {
+    font-size: 1.2rem;
+    color: var(--text); /* Secondary Accent */
+}
+
+/* Hero Section */
+#hero {
+    position: relative;
+    text-align: center;
+    padding: 2rem;
+    background: #293025; /* Deep Green Background */
+    color: var(--text); /* Text Color */
+}
+
+.carousel {
+    overflow: hidden;
+    position: relative;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.carousel-item {
+    display: none;
+    text-align: center;
+}
+
+.carousel-item.active {
+    display: block;
+}
+
+.carousel-control {
+    background: transparent;
+    border: none;
+    color: var(--text); /* Primary Accent */
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+.carousel-control:hover {
+    color: var(--text); /* Lighter Green */
+}
+
+/* Sections */
+main {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 1rem;
+}
+
+section {
+    margin-bottom: 2rem;
+}
+
+section h2 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    color: var(--text); /* Primary Accent */
+}
+
+section p,
+section ul {
+    font-size: 1rem;
+    color: var(--text); /* Light Grey */
+}
+
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+}
+
+.project {
+    background-color: #20201a; /* Slightly lighter than background */
+    padding: 1rem;
+    border-radius: 8px;
+    text-align: center;
+    border: 1px solid #161612; /* Subtle Border */
+}
+
+.project h3 {
+    color: var(--text); /* Primary Accent */
+}
+
+.project a {
+    color: var(--text); /* Secondary Accent */
+    text-decoration: none;
+}
+
+.project a:hover {
+    text-decoration: underline;
+    color: #e0e0e0; /* Neutral color on hover */
+}
+
+/* Social Links */
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.social-links a {
+    padding: 0.5rem 1rem;
+    background-color: #1f3b3b; /* Deep Green */
+    color: var(--text); /* Primary Accent */
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.social-links a:hover {
+    background-color: #76c893; /* Highlight */
+    color: #121212; /* Dark Background for Contrast */
+}
+
+/* Footer */
+footer {
+    background-color: var(--background); /* Slightly lighter dark */
+    color: var(--text); /* Primary Accent */
+    text-align: center;
+    padding: 1rem 0;
+    margin-top: 2rem;
+}
+
+/* Alerts/Errors */
+.alert {
+    color: #ff6b6b; /* Vivid Red for Alerts */
+}
