@@ -31,7 +31,6 @@ function prompt() {
                     remainingArgs = answer.substring(endQuotePos + 1).trim();
                 }
             }
-
             if (quotedCommand) {
                 // Split remaining arguments by spaces (could be enhanced to handle quoted args)
                 const args = remainingArgs
@@ -76,8 +75,46 @@ function prompt() {
         const command = arguments[0];
         const commandArguments = arguments.slice(1);
 
-        // Handle built-in commands
-        if (command === "exit") {
+        if (answer.includes(">")) {
+            const redirectionParts = answer
+                .replace(/\d+>(?=\s|$)/g, ">")
+                .split(">");
+            const commandWithArgs = redirectionParts[0].trim();
+            const redirectTarget = redirectionParts[1].trim();
+
+            // Check if there's a file descriptor specified (like 1> or 2>)
+            const descriptorMatch = redirectTarget.match(/^(\d+)?\s*(.*)/);
+            const fileDescriptor = descriptorMatch[1]
+                ? parseInt(descriptorMatch[1])
+                : 1; // Default to stdout (1)
+            const fileName = descriptorMatch[2].trim();
+
+            // Validate input
+            if (!fileName) {
+                return console.error(
+                    "Error: No file specified for redirection"
+                );
+            }
+            if (fileDescriptor !== 1) {
+                return console.error(
+                    "Error: Only stdout redirection (1>) is supported"
+                );
+            }
+
+            // Split command into program and arguments
+            const commandParts = commandWithArgs.split(/\s+/);
+            const command = commandParts[0];
+            const commandArguments = commandParts.slice(1);
+
+            // Execute command with arguments
+            const result = execFileSync(command, commandArguments, {
+                encoding: "utf8",
+            });
+            fs.writeFileSync(fileName, result);
+
+            prompt();
+            return;
+        } else if (command === "exit") {
             rl.close();
         } else if (command === "echo") {
             const match = answer.match(/^echo\s+(['].*['])$/);
