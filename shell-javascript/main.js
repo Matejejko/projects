@@ -2,7 +2,6 @@ const readline = require("readline");
 const fs = require("fs");
 const path = require("path");
 const { execFileSync } = require("child_process");
-const { interpretEscapes } = require("./escapeHandler");
 
 const rl = readline.createInterface({
     input: process.stdin,
@@ -13,9 +12,71 @@ const prompts = ["echo", "exit", "type", "pwd", "cd"];
 
 function prompt() {
     rl.question("$ ", (answer) => {
+        // Check if the command starts with a quote (single or double)
+        if (answer.startsWith("'") || answer.startsWith('"')) {
+            let quotedCommand, remainingArgs;
+
+            if (answer.startsWith("'")) {
+                // For single quotes - find the matching closing quote
+                const endQuotePos = answer.indexOf("'", 1);
+                if (endQuotePos > 0) {
+                    quotedCommand = answer.substring(1, endQuotePos);
+                    remainingArgs = answer.substring(endQuotePos + 1).trim();
+                }
+            } else if (answer.startsWith('"')) {
+                // For double quotes - find the matching closing quote
+                const endQuotePos = answer.indexOf('"', 1);
+                if (endQuotePos > 0) {
+                    quotedCommand = answer.substring(1, endQuotePos);
+                    remainingArgs = answer.substring(endQuotePos + 1).trim();
+                }
+            }
+
+            if (quotedCommand) {
+                // Split remaining arguments by spaces (could be enhanced to handle quoted args)
+                const args = remainingArgs
+                    ? remainingArgs.split(/\s+/).filter(Boolean)
+                    : [];
+
+                // Look for the executable in PATH
+                const paths = process.env.PATH.split(path.delimiter);
+                let found = false;
+
+                for (const p of paths) {
+                    const fullPath = path.join(p, quotedCommand);
+                    if (
+                        fs.existsSync(fullPath) &&
+                        fs.statSync(fullPath).isFile()
+                    ) {
+                        found = true;
+                        try {
+                            const baseName = path.basename(fullPath);
+                            execFileSync(fullPath, args, {
+                                stdio: "inherit",
+                                argv0: baseName, // Use basename for argv[0]
+                            });
+                        } catch (error) {
+                            console.error(
+                                `Error executing command: ${error.message}`
+                            );
+                        }
+                        prompt();
+                        return;
+                    }
+                }
+
+                if (!found) {
+                    console.log(`${quotedCommand}: command not found`);
+                    prompt();
+                    return;
+                }
+            }
+        }
         const arguments = answer.split(" ");
         const command = arguments[0];
         const commandArguments = arguments.slice(1);
+
+        // Handle built-in commands
         if (command === "exit") {
             rl.close();
         } else if (command === "echo") {
@@ -117,20 +178,6 @@ function prompt() {
             }
             process.stdout.write(output.trim() + "\n"); // Print output without extra newlines
             setTimeout(prompt, 0);
-        } else if (answer.startsWith("'" || '"')) {
-            answer.slice(1, -1);
-            const paths = process.env.PATH.split(path.delimiter);
-            for (const p of paths) {
-                let fullPath = path.join(p, command);
-                if (fs.existsSync(fullPath) && fs.statSync(fullPath).isFile()) {
-                    execFileSync(filePath, args, {
-                        encoding: "utf-8",
-                        stdio: "inherit",
-                        argv0: executable,
-                    });
-                    prompt();
-                }
-            }
         } else {
             let found = false;
             const paths = process.env.PATH.split(path.delimiter);
@@ -141,19 +188,25 @@ function prompt() {
                     fs.statSync(fullPath2).isFile()
                 ) {
                     found = true;
-                    const programName = path.basename(fullPath2);
-                    execFileSync(programName, commandArguments, {
-                        stdio: "inherit",
-                    });
-                    prompt();
-                    return;
+                    const baseName = path.basename(fullPath2);
+                    try {
+                        execFileSync(fullPath2, commandArguments, {
+                            stdio: "inherit",
+                            argv0: baseName, // Use basename for argv[0]
+                        });
+                    } catch (error) {
+                        console.error(
+                            `Error executing command: ${error.message}`
+                        );
+                    }
+                    break;
                 }
             }
             if (!found) {
                 console.log(`${command}: command not found`);
-                prompt();
-                return;
             }
+            prompt();
+            return;
         }
     });
 }

@@ -7,419 +7,49 @@
 
 /* Body styling */
 body {
-    font-family: "Roboto", Arial, sans-serif;
+    font-family: Arial, sans-serif;
     line-height: 1.6;
-    background-color: #1a1a1a; /* Dark background */
-    color: #e0e0e0; /* Light text for dark background */
-    /* Add padding to account for fixed header */
-    padding-top: 143px;
-}
-
-/* Container */
-.container {
-    width: 90%;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
+    background-color: #f4f4f4;
+    color: #333;
+    padding: 20px;
 }
 
 /* Header styling */
 header {
-    background: #242424; /* Dark header */
+    background: #333;
     color: #fff;
-    padding: 0px 0 20px;
-    /* Change from sticky to fixed */
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 100;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    padding: 10px 0;
     text-align: center;
 }
 
-header h1 {
-    font-size: 2.8rem;
-    margin-bottom: 5px;
-}
-
-header .job-title {
-    font-size: 1.4rem;
-    font-weight: 400;
-    margin-bottom: 20px;
-    color: #a9b75f; /* Olive accent */
-}
-
 /* Navigation styling */
-nav {
-    display: flex;
-    justify-content: center;
-}
-
 nav ul {
     list-style: none;
     padding: 0;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
 }
 
 nav ul li {
-    margin: 0 15px;
+    display: inline;
+    margin-right: 10px;
 }
 
 nav ul li a {
-    color: #e0e0e0;
+    color: #fff;
     text-decoration: none;
-    font-weight: bold;
-    transition: color 0.3s ease;
-}
-
-nav ul li a:hover {
-    color: #c5d86d; /* Lighter olive */
 }
 
 /* Main content styling */
 main {
-    min-height: calc(100vh - 150px);
-}
-
-.section {
-    padding: 60px 0;
-}
-
-section:nth-child(even) {
-    background-color: #262626; /* Slightly lighter dark background */
-}
-
-/* Hero (About) section */
-.hero {
-    background: linear-gradient(rgba(36, 36, 36, 0.85), rgba(36, 36, 36, 0.85)),
-        url("https://via.placeholder.com/1920x1080");
-    background-size: cover;
-    background-position: center;
-    color: #e0e0e0;
-    text-align: center;
-    padding: 100px 0;
-}
-
-.profile-image {
-    border-radius: 50%;
-    border: 5px solid #a9b75f; /* Olive border */
-    margin-bottom: 25px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
-}
-
-.hero h2 {
-    font-size: 2.3rem;
-    margin-bottom: 20px;
-    color: #e0e0e0;
-}
-
-.hero p {
-    font-size: 1.2rem;
-    margin-bottom: 30px;
-    max-width: 800px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.social-links {
-    margin-top: 30px;
-}
-
-.social-btn {
-    margin: 0 10px;
-    background-color: transparent;
-    border: 2px solid #a9b75f; /* Olive border */
-    color: #e0e0e0;
-}
-
-.social-btn:hover {
-    background-color: #a9b75f; /* Olive background */
-    color: #1a1a1a; /* Dark text on hover */
-}
-
-/* Button styling */
-.btn {
-    display: inline-block;
-    background-color: #7c8b43; /* Darker olive */
-    color: #e0e0e0;
-    padding: 10px 25px;
-    text-decoration: none;
-    border-radius: 5px;
-    transition: all 0.3s ease;
-    border: none;
-    cursor: pointer;
-    font-size: 1rem;
-}
-
-.btn:hover {
-    background-color: #a9b75f; /* Lighter olive on hover */
-    transform: translateY(-3px);
-    color: #1a1a1a;
-}
-
-.btn-small {
-    padding: 6px 12px;
-    font-size: 0.9rem;
-}
-
-/* Timeline items (Experience & Education) */
-.timeline-item {
-    position: relative;
-    padding-bottom: 40px;
-    margin-bottom: 30px;
-    border-left: 3px solid #a9b75f; /* Olive border */
-    padding-left: 30px;
-}
-
-.timeline-item:last-child {
-    margin-bottom: 0;
-}
-
-.timeline-item::before {
-    content: "";
-    position: absolute;
-    left: -10px;
-    top: 0;
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    background-color: #a9b75f; /* Olive circle */
-}
-
-.timeline-item h3 {
-    margin-bottom: 10px;
-    color: #c5d86d; /* Lighter olive */
-}
-
-.timeline-meta {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 15px;
-    font-style: italic;
-    color: #a0a0a0; /* Muted light text */
-}
-
-.responsibilities {
-    margin-left: 20px;
-}
-
-.responsibilities li {
-    margin-bottom: 8px;
-}
-
-/* Skills section */
-.skills-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 30px;
-}
-
-.skill-category h3 {
-    margin-bottom: 15px;
-    color: #c5d86d; /* Lighter olive */
-    text-align: left;
-}
-
-.skill-list {
-    list-style: none;
-}
-
-.skill-list li {
-    background-color: #2b2b2b; /* Dark cards */
-    padding: 10px 15px;
-    margin-bottom: 10px;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s ease;
-    border-left: 3px solid #a9b75f; /* Olive accent */
-    color: #e0e0e0;
-}
-
-.skill-list li:hover {
-    transform: translateX(5px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-    background-color: #333333; /* Slightly lighter on hover */
-}
-
-/* Projects section */
-.projects-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-    margin-top: 40px;
-}
-
-.project-card {
-    background-color: #2b2b2b; /* Dark cards */
-    border-radius: 5px;
-    padding: 30px;
-    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s ease;
-}
-
-.project-card:hover {
-    transform: translateY(-5px);
-    background-color: #333333; /* Slightly lighter on hover */
-}
-
-.project-card h3 {
-    margin-bottom: 15px;
-    color: #c5d86d; /* Lighter olive */
-}
-
-.tech-stack {
-    display: flex;
-    flex-wrap: wrap;
-    margin: 15px 0;
-}
-
-.tech-stack span {
-    background-color: #363636; /* Dark tech tags */
-    padding: 5px 10px;
-    border-radius: 3px;
-    margin-right: 8px;
-    margin-bottom: 8px;
-    font-size: 0.9rem;
-    color: #a9b75f; /* Olive text */
-}
-
-.project-links {
     margin-top: 20px;
-}
-
-.project-links .btn {
-    margin-right: 10px;
-}
-
-/* Contact section */
-.contact-container {
-    display: grid;
-    grid-template-columns: 1fr 2fr;
-    gap: 50px;
-    margin-top: 30px;
-}
-
-.contact-info h3 {
-    margin-bottom: 20px;
-    color: #c5d86d; /* Lighter olive */
-    text-align: left;
-}
-
-.contact-info ul {
-    list-style: none;
-}
-
-.contact-info ul li {
-    margin-bottom: 15px;
-}
-
-.contact-info ul li strong {
-    color: #a9b75f; /* Olive text */
-}
-
-.contact-form {
-    max-width: 100%;
-}
-
-.form-group {
-    margin-bottom: 20px;
-}
-
-label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: bold;
-    color: #c5d86d; /* Lighter olive */
-}
-
-input,
-textarea {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #444444;
-    border-radius: 4px;
-    font-family: inherit;
-    font-size: 1rem;
-    background-color: #2b2b2b; /* Dark input fields */
-    color: #e0e0e0;
-}
-
-input:focus,
-textarea:focus {
-    border-color: #a9b75f; /* Olive border on focus */
-    outline: none;
-    box-shadow: 0 0 5px rgba(169, 183, 95, 0.3); /* Olive shadow */
-}
-
-/* Typography */
-h2 {
-    color: #c5d86d; /* Lighter olive */
-    margin-bottom: 30px;
-    text-align: center;
-    font-size: 2rem;
-}
-
-h3 {
-    font-size: 1.5rem;
-}
-
-p {
-    margin-bottom: 15px;
 }
 
 /* Footer styling */
 footer {
-    background: #242424; /* Dark footer */
-    color: #e0e0e0;
+    background: #333;
+    color: #fff;
     text-align: center;
-    padding: 20px 0;
-}
-
-/* Responsive styles */
-@media (max-width: 768px) {
-    nav ul {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    nav ul li {
-        margin: 5px 0;
-    }
-
-    .hero {
-        padding: 60px 0;
-    }
-
-    .hero h2 {
-        font-size: 2rem;
-    }
-
-    .timeline-meta {
-        flex-direction: column;
-    }
-
-    .contact-container {
-        grid-template-columns: 1fr;
-    }
-
-    .contact-info {
-        margin-bottom: 30px;
-    }
-}
-
-@media (max-width: 480px) {
-    header h1 {
-        font-size: 2.2rem;
-    }
-
-    .timeline-item {
-        padding-left: 20px;
-    }
-
-    .projects-grid {
-        grid-template-columns: 1fr;
-    }
+    padding: 10px 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
 }
