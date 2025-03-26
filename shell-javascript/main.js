@@ -2,6 +2,7 @@ const readline = require("readline");
 const fs = require("fs");
 const path = require("path");
 const { execFileSync } = require("child_process");
+const { execSync } = require("child_process");
 
 const rl = readline.createInterface({
     input: process.stdin,
@@ -79,7 +80,9 @@ function prompt() {
             const redirectionParts = answer
                 .replace(/\d+>(?=\s|$)/g, ">")
                 .split(">");
-            const commandWithArgs = redirectionParts[0].trim();
+            const commandWithArgs = redirectionParts[0]
+                .trim()
+                .replace(/'/g, "");
             const redirectTarget = redirectionParts[1].trim();
 
             // Check if there's a file descriptor specified (like 1> or 2>)
@@ -91,28 +94,36 @@ function prompt() {
 
             // Validate input
             if (!fileName) {
-                return console.error(
-                    "Error: No file specified for redirection"
-                );
+                console.error("Error: No file specified for redirection");
+                prompt(); // Return to prompt
+                return;
             }
             if (fileDescriptor !== 1) {
-                return console.error(
+                console.error(
                     "Error: Only stdout redirection (1>) is supported"
                 );
+                prompt(); // Return to prompt
+                return;
             }
-
+            //ss
             // Split command into program and arguments
             const commandParts = commandWithArgs.split(/\s+/);
             const command = commandParts[0];
             const commandArguments = commandParts.slice(1);
 
-            // Execute command with arguments
-            const result = execFileSync(command, commandArguments, {
-                encoding: "utf8",
-            });
-            fs.writeFileSync(fileName, result);
+            try {
+                // Execute command with arguments
+                const result = execFileSync(command, commandArguments, {
+                    encoding: "utf8",
+                });
 
-            prompt();
+                // Write result to file
+                fs.writeFileSync(fileName, result);
+
+                prompt(); // Return to prompt after successful redirection
+            } catch (error) {
+                prompt(); // Return to prompt even if execution fails
+            }
             return;
         } else if (command === "exit") {
             rl.close();
@@ -232,7 +243,7 @@ function prompt() {
                             argv0: baseName, // Use basename for argv[0]
                         });
                     } catch (error) {
-                        console.error(
+                        console.log(
                             `Error executing command: ${error.message}`
                         );
                     }
@@ -241,6 +252,8 @@ function prompt() {
             }
             if (!found) {
                 console.log(`${command}: command not found`);
+                prompt();
+                return;
             }
             prompt();
             return;
