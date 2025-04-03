@@ -1,0 +1,13 @@
+until 3.4 this project went it steps of following the codecraffter
+
+no idea when the whole code was rewritten from else if to functions
+
+from 3.4 what i have implemented is colors to terminal	
+
+right now that is also 3.4 im implementing a LLM to my shell (no specific reason)
+- - - - - - 
+	for this first of all im installing node - fetch to be able to send requests on http how ever since i have node 22 i just implement 
+const response = await fetch("https://api.openai.com/v1/chat/completions");
+
+no takze teraz tam je chatbot weee
+
