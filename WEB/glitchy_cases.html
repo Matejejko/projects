@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Glitchy Hover + Reverse</title>
+        <style>
+            body {
+                background: #111;
+                color: white;
+                font-family: monospace;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100vh;
+            }
+
+            .glitch-text {
+                font-size: 2.5rem;
+                cursor: pointer;
+            }
+
+            .glitch-text span {
+                display: inline-block;
+                transition: transform 0.1s, color 0.1s;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="glitch-text">about</div>
+
+        <script>
+            const el = document.querySelector(".glitch-text");
+            const originalText = el.textContent;
+
+            // Wrap each letter in <span>
+            el.innerHTML = [...originalText]
+                .map((char) => `<span>${char}</span>`)
+                .join("");
+            const spans = el.querySelectorAll("span");
+
+            function glitchTo(targetText, toUpper = true) {
+                spans.forEach((span, i) => {
+                    const origChar = targetText[i];
+                    let interval = setInterval(() => {
+                        const char = origChar;
+                        span.textContent =
+                            Math.random() > 0.5
+                                ? toUpper
+                                    ? char.toUpperCase()
+                                    : char.toLowerCase()
+                                : toUpper
+                                ? char.toLowerCase()
+                                : char.toUpperCase();
+                    }, 30);
+
+                    setTimeout(() => {
+                        clearInterval(interval);
+                        span.textContent = toUpper
+                            ? origChar.toUpperCase()
+                            : origChar.toLowerCase();
+                    }, 200 + Math.random() * 200);
+                });
+            }
+
+            el.addEventListener("mouseenter", () => {
+                glitchTo(originalText, true); // to UPPERCASE
+            });
+
+            el.addEventListener("mouseleave", () => {
+                glitchTo(originalText, false); // back to lowercase
+            });
+        </script>
+    </body>
+</html>

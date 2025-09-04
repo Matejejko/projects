@@ -1,0 +1,281 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap");
+
+body {
+    font-family: "Poppins", sans-serif;
+    scroll-behavior: smooth;
+    background-color: #0f1a14;
+    color: #e2e8f0;
+}
+
+.gradient-text {
+    background: linear-gradient(90deg, #4ade80, #10b981);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.gradient-border {
+    position: relative;
+    border-radius: 0.5rem;
+    background: #1a2e22;
+}
+
+.gradient-border::before {
+    content: "";
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, #4ade80, #10b981, #059669);
+    border-radius: 0.6rem;
+    z-index: -1;
+}
+
+.skill-bar {
+    height: 8px;
+    border-radius: 4px;
+    background: #1f3a29;
+    position: relative;
+    overflow: hidden;
+}
+
+.skill-progress {
+    position: absolute;
+    height: 100%;
+    border-radius: 4px;
+    background: linear-gradient(90deg, #4ade80, #10b981);
+    animation: skillAnimation 1.5s ease-out forwards;
+    transform-origin: left;
+    transform: scaleX(0);
+}
+
+@keyframes skillAnimation {
+    to {
+        transform: scaleX(1);
+    }
+}
+
+.timeline-item {
+    position: relative;
+    padding-left: 30px;
+}
+
+.timeline-item::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 2px;
+    background: linear-gradient(to bottom, #4ade80, #10b981);
+}
+
+.timeline-item::after {
+    content: "";
+    position: absolute;
+    left: -4px;
+    top: 8px;
+    height: 10px;
+    width: 10px;
+    border-radius: 50%;
+    background: #4ade80;
+}
+
+.nav-link {
+    position: relative;
+    transition: all 0.3s;
+}
+
+.nav-link::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -2px;
+    left: 0;
+    background: linear-gradient(90deg, #4ade80, #10b981);
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+.active-nav::after {
+    width: 100%;
+}
+
+.project-card {
+    transition: all 0.3s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-10px);
+}
+
+.contact-icon {
+    transition: all 0.3s ease;
+}
+
+.contact-icon:hover {
+    transform: scale(1.2);
+    color: #4ade80;
+}
+
+/* Animation for scrolling up */
+[data-aos="fade-up-scroll"] {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: transform 0.8s ease, opacity 0.8s ease;
+}
+
+[data-aos="fade-up-scroll"].aos-animate {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Animation for hero section when scrolling back up */
+.hero-animate-up {
+    animation: heroFadeIn 1s ease forwards;
+}
+
+@keyframes heroFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.education {
+    background-color: var(--dark-bg);
+}
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+.timeline {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+}
+.timeline::after {
+    content: "";
+    position: absolute;
+    width: 4px;
+    background-color: var(--primary-color);
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    margin-left: -2px;
+}
+.timeline-item {
+    padding: 10px 40px;
+    position: relative;
+    width: 50%;
+    opacity: 0;
+    transform: translateX(-50px);
+    transition: var(--transition);
+}
+
+.timeline-item.animate {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.timeline-item:nth-child(odd) {
+    left: 0;
+}
+
+.timeline-item:nth-child(even) {
+    left: 50%;
+    transform: translateX(50px);
+}
+
+.timeline-item:nth-child(even).animate {
+    transform: translateX(0);
+}
+
+.timeline-content {
+    padding: 20px;
+    background-color: var(--dark-card);
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    position: relative;
+    border: 1px solid var(--dark-border);
+}
+
+.timeline-content::after {
+    content: "";
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: var(--dark-card);
+    top: 20px;
+    border: 1px solid var(--dark-border);
+}
+
+.timeline-item:nth-child(odd) .timeline-content::after {
+    right: -10px;
+    transform: rotate(45deg);
+    border-left: none;
+    border-bottom: none;
+}
+
+.timeline-item:nth-child(even) .timeline-content::after {
+    left: -10px;
+    transform: rotate(45deg);
+    border-right: none;
+    border-top: none;
+}
+
+.timeline-dot {
+    width: 20px;
+    height: 20px;
+    background-color: var(--accent-color);
+    border-radius: 50%;
+    position: absolute;
+    top: 20px;
+    z-index: 1;
+    left: 50%;
+    margin-left: -10px;
+    box-shadow: 0 0 10px rgba(26, 188, 156, 0.5);
+}
+
+.timeline-date {
+    color: var(--primary-color);
+    font-weight: 600;
+}
+.timeline::after {
+    left: 31px;
+}
+
+.timeline-item {
+    width: 100%;
+    padding-left: 70px;
+    padding-right: 25px;
+}
+
+.timeline-item:nth-child(even) {
+    left: 0;
+}
+
+.timeline-dot {
+    left: 31px;
+    margin-left: 0;
+}
+
+.timeline-item:nth-child(odd) .timeline-content::after,
+.timeline-item:nth-child(even) .timeline-content::after {
+    left: -10px;
+    right: auto;
+    border-right: none;
+    border-top: none;
+    border-left: 1px solid var(--dark-border);
+    border-bottom: 1px solid var(--dark-border);
+}

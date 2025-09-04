@@ -1,0 +1,1179 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Professional CV | Portfolio</title>
+        <script src="https://cdn.tailwindcss.com"></script>
+        <script src="back.js"></script>
+        <link href="style2.css" rel="stylesheet" />
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+        <!-- Header/Navigation -->
+        <header
+            class="fixed w-full top-0 z-50 bg-emerald-900/80 backdrop-blur-md border-b border-emerald-800"
+        >
+            <div class="container mx-auto px-4 py-4">
+                <div class="flex justify-between items-center">
+                    <a href="#hero" class="text-2xl font-bold gradient-text"
+                        >Matej.Papaj</a
+                    >
+                    <nav class="hidden md:flex space-x-8">
+                        <a href="#about" class="nav-link active-nav">About</a>
+                        <a href="#skills" class="nav-link">Skills</a>
+                        <a href="#experience" class="nav-link">Experience</a>
+                        <a href="#projects" class="nav-link">Projects</a>
+                        <a href="#contact" class="nav-link">Contact</a>
+                    </nav>
+
+                    <button id="mobile-menu-btn" class="md:hidden text-white">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Mobile Menu -->
+            <div
+                id="mobile-menu"
+                class="md:hidden hidden bg-emerald-900 border-t border-emerald-800"
+            >
+                <div class="container mx-auto px-4 py-2">
+                    <nav class="flex flex-col space-y-3 py-3">
+                        <a href="#about" class="nav-link">About</a>
+                        <a href="#skills" class="nav-link">Skills</a>
+                        <a href="#experience" class="nav-link">Experience</a>
+                        <a href="#projects" class="nav-link">Projects</a>
+                        <a href="#contact" class="nav-link">Contact</a>
+                    </nav>
+                </div>
+            </div>
+        </header>
+
+        <!-- Hero Section -->
+        <section id="hero" class="min-h-screen flex items-center pt-20 pb-10">
+            <div class="container mx-auto px-4">
+                <div
+                    class="flex flex-col md:flex-row items-center"
+                    id="hero-content"
+                >
+                    <div class="md:w-1/2 mb-10 md:mb-0" data-aos="fade-right">
+                        <h1 class="text-4xl md:text-6xl font-bold mb-4">
+                            Hi, I'm
+                            <span class="gradient-text">Matej Papaj</span>
+                        </h1>
+                        <h2
+                            class="text-2xl md:text-3xl font-semibold mb-6 text-emerald-200"
+                        >
+                            Student at Dual
+                        </h2>
+                        <p class="text-lg text-emerald-100/80 mb-8">
+                            Acomputer science student at Dual with a passion for
+                            systems, and minimalist design. I enjoy building
+                            efficient, purposeful software and customizing my
+                            workflow for maximum productivity. Always learning,
+                            always improving.
+                        </p>
+                        <div class="flex space-x-4">
+                            <a
+                                href="#contact"
+                                class="px-8 py-3 bg-gradient-to-r from-green-400 to-emerald-600 rounded-full font-semibold hover:opacity-90 transition-all"
+                                >Hire Me</a
+                            >
+                            <a
+                                href="#projects"
+                                class="px-8 py-3 border border-emerald-600 rounded-full font-semibold hover:border-green-400 transition-all"
+                                >My Work</a
+                            >
+                        </div>
+                    </div>
+                    <div
+                        class="md:w-1/2 flex justify-center"
+                        data-aos="fade-left"
+                    >
+                        <div class="relative w-64 h-64 md:w-80 md:h-80">
+                            <div
+                                class="absolute inset-0 rounded-full bg-gradient-to-r from-green-400 to-emerald-600 animate-pulse"
+                            ></div>
+                            <div
+                                class="absolute inset-1 rounded-full bg-emerald-900 flex items-center justify-center"
+                            >
+                                <svg
+                                    class="w-full h-full text-emerald-700"
+                                    viewBox="0 0 24 24"
+                                    fill="currentColor"
+                                >
+                                    <path
+                                        d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"
+                                    />
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-20 flex justify-center">
+                    <div class="animate-bounce">
+                        <a
+                            href="#about"
+                            class="flex flex-col items-center text-emerald-400 hover:text-green-400 transition-colors"
+                        >
+                            <span class="mb-2">Scroll Down</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="py-20 bg-emerald-900/30">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-16" data-aos="fade-up">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-2">
+                        About <span class="gradient-text">Me</span>
+                    </h2>
+                    <div
+                        class="w-24 h-1 bg-gradient-to-r from-green-400 to-emerald-600 mx-auto"
+                    ></div>
+                </div>
+
+                <div class="flex flex-col items-center">
+                    <div class="w-full md:w-1/2 text-center" data-aos="fade-up">
+                        <div class="gradient-border p-1">
+                            <div class="bg-emerald-900/50 p-6 rounded-lg">
+                                <h3 class="text-2xl font-semibold mb-4">
+                                    Who I Am
+                                </h3>
+                                <p class="text-emerald-100/80 mb-4">
+                                    I am a dedicated and detail-oriented
+                                    computer science student with a strong
+                                    interest in systems, cybersecurity,
+                                    programming and cloud technologies. I enjoy
+                                    working on practical, hands-on projects and
+                                    continuously seek to deepen my understanding
+                                </p>
+                                <p class="text-emerald-100/80 mb-4">
+                                    With a logical and analytical mindset, I
+                                    approach challenges methodically and strive
+                                    for efficient, well-structured solutions. I
+                                    am enthusiastic about gaining hands-on
+                                    experience and expanding my expertise in
+                                    both on-premise and cloud-based systems by
+                                    learning through real-world projects.
+                                </p>
+                                <p class="text-emerald-100/80">
+                                    When I’m not working or studying, I enjoy
+                                    exploring new technologies, modeling, gaming
+                                    and personalizing OS. These activities help
+                                    me maintain a balanced perspective and fuel
+                                    my creativity.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Education Section -->
+        <section class="education" id="education">
+            <div class="container">
+                <h2>Education & Experience</h2>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <h3>Bachelor of Computer Science</h3>
+                            <p class="timeline-date">2020 - Present</p>
+                            <p>University of Technology</p>
+                            <p>
+                                Studying computer science with focus on software
+                                development and artificial intelligence.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <h3>Web Development Intern</h3>
+                            <p class="timeline-date">Summer 2022</p>
+                            <p>Tech Solutions Inc.</p>
+                            <p>
+                                Worked on front-end development for client
+                                projects using modern JavaScript frameworks.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <h3>High School Diploma</h3>
+                            <p class="timeline-date">2016 - 2020</p>
+                            <p>Science Academy</p>
+                            <p>
+                                Graduated with honors, focusing on mathematics
+                                and computer science.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <h3>Coding Bootcamp</h3>
+                            <p class="timeline-date">Summer 2019</p>
+                            <p>Code Academy</p>
+                            <p>
+                                Intensive 8-week program covering web
+                                development fundamentals.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="py-20 bg-emerald-950/70">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-16" data-aos="fade-up">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-2">
+                        My <span class="gradient-text">Skills</span>
+                    </h2>
+                    <div
+                        class="w-24 h-1 bg-gradient-to-r from-green-400 to-emerald-600 mx-auto"
+                    ></div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                    <div data-aos="fade-right">
+                        <h3 class="text-2xl font-semibold mb-8">
+                            Technical Skills
+                        </h3>
+
+                        <div class="space-y-6">
+                            <div class="skill-item" data-aos="fade-up-scroll">
+                                <div class="flex justify-between mb-2">
+                                    <span class="font-medium">Skill 1</span>
+                                    <span>90%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div
+                                        class="skill-progress"
+                                        style="width: 90%"
+                                    ></div>
+                                </div>
+                            </div>
+
+                            <div
+                                class="skill-item"
+                                data-aos="fade-up-scroll"
+                                data-aos-delay="100"
+                            >
+                                <div class="flex justify-between mb-2">
+                                    <span class="font-medium">Skill 2</span>
+                                    <span>85%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div
+                                        class="skill-progress"
+                                        style="width: 85%"
+                                    ></div>
+                                </div>
+                            </div>
+
+                            <div
+                                class="skill-item"
+                                data-aos="fade-up-scroll"
+                                data-aos-delay="200"
+                            >
+                                <div class="flex justify-between mb-2">
+                                    <span class="font-medium">Skill 3</span>
+                                    <span>80%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div
+                                        class="skill-progress"
+                                        style="width: 80%"
+                                    ></div>
+                                </div>
+                            </div>
+
+                            <div
+                                class="skill-item"
+                                data-aos="fade-up-scroll"
+                                data-aos-delay="300"
+                            >
+                                <div class="flex justify-between mb-2">
+                                    <span class="font-medium">Skill 4</span>
+                                    <span>75%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div
+                                        class="skill-progress"
+                                        style="width: 75%"
+                                    ></div>
+                                </div>
+                            </div>
+
+                            <div
+                                class="skill-item"
+                                data-aos="fade-up-scroll"
+                                data-aos-delay="400"
+                            >
+                                <div class="flex justify-between mb-2">
+                                    <span class="font-medium">Skill 5</span>
+                                    <span>70%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div
+                                        class="skill-progress"
+                                        style="width: 70%"
+                                    ></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div data-aos="fade-left">
+                        <h3 class="text-2xl font-semibold mb-8">
+                            Professional Skills
+                        </h3>
+
+                        <div class="grid grid-cols-2 gap-6">
+                            <div
+                                class="gradient-border p-1"
+                                data-aos="fade-up-scroll"
+                            >
+                                <div
+                                    class="bg-emerald-900/50 p-6 rounded-lg text-center"
+                                >
+                                    <div
+                                        class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-green-400/10 mb-4"
+                                    >
+                                        <i
+                                            class="fas fa-users text-green-400 text-2xl"
+                                        ></i>
+                                    </div>
+                                    <h4 class="text-lg font-semibold mb-2">
+                                        Teamwork
+                                    </h4>
+                                    <div class="flex justify-center">
+                                        <div class="flex">
+                                            <i
+                                                class="fas fa-star text-yellow-400"
+                                            ></i>
+                                            <i
+                                                class="fas fa-star text-yellow-400"
+                                            ></i>
+                                            <i
+                                                class="fas fa-star text-yellow-400"
+                                            ></i>
+                                            <i
+                                                class="fas fa-star text-yellow-400"
+                                            ></i>
+                                            <i
+                                                class="fas fa-star text-yellow-400"
+                                            ></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div
+                                class="gradient-border p-1"
+                                data-aos="fade-up-scroll"
+                                data-aos-delay="100"
+                            >
+                                <div
+                                    class="bg-emerald-900/50 p-6 rounded-lg text-center"
+                                >
+                                    <div
+                                        class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-green-400/10 mb-4"
+                                    >
+                                        <i
+                                            class="fas fa-lightbulb text-green-400 text-2xl"
+                                        ></i>
+                                    </div>
+                                    <h4 class="text-lg font-semibold mb-2">
+                                        Creativity
+                                    </h4>
+                                    <div class="flex justify-center">
+                                        <div class="flex">
+                                            <i
+                                                class="fas fa-star text-yellow-400"
+                                            ></i>
+                                            <i
+                                                class="fas fa-star text-yellow-400"
+                                            ></i>
+                                            <i
+                                                class="fas fa-star text-yellow-400"
+                                            ></i>
+                                            <i
+                                                class="fas fa-star text-yellow-400"
+                                            ></i>
+                                            <i
+                                                class="fas fa-star-half-alt text-yellow-400"
+                                            ></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div
+                                class="gradient-border p-1"
+                                data-aos="fade-up-scroll"
+                                data-aos-delay="200"
+                            >
+                                <div
+                                    class="bg-emerald-900/50 p-6 rounded-lg text-center"
+                                >
+                                    <div
+                                        class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-green-400/10 mb-4"
+                                    >
+                                        <i
+                                            class="fas fa-comments text-green-400 text-2xl"
+                                        ></i>
+                                    </div>
+                                    <h4 class="text-lg font-semibold mb-2">
+                                        Communication
+                                    </h4>
+                                    <div class="flex justify-center">
+                                        <div class="flex">
+                                            <i
+                                                class="fas fa-star text-yellow-400"
+                                            ></i>
+                                            <i
+                                                class="fas fa-star text-yellow-400"
+                                            ></i>
+                                            <i
+                                                class="fas fa-star text-yellow-400"
+                                            ></i>
+                                            <i
+                                                class="fas fa-star text-yellow-400"
+                                            ></i>
+                                            <i
+                                                class="fas fa-star text-yellow-400"
+                                            ></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div
+                                class="gradient-border p-1"
+                                data-aos="fade-up-scroll"
+                                data-aos-delay="300"
+                            >
+                                <div
+                                    class="bg-emerald-900/50 p-6 rounded-lg text-center"
+                                >
+                                    <div
+                                        class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-green-400/10 mb-4"
+                                    >
+                                        <i
+                                            class="fas fa-tasks text-green-400 text-2xl"
+                                        ></i>
+                                    </div>
+                                    <h4 class="text-lg font-semibold mb-2">
+                                        Project Management
+                                    </h4>
+                                    <div class="flex justify-center">
+                                        <div class="flex">
+                                            <i
+                                                class="fas fa-star text-yellow-400"
+                                            ></i>
+                                            <i
+                                                class="fas fa-star text-yellow-400"
+                                            ></i>
+                                            <i
+                                                class="fas fa-star text-yellow-400"
+                                            ></i>
+                                            <i
+                                                class="fas fa-star text-yellow-400"
+                                            ></i>
+                                            <i
+                                                class="far fa-star text-yellow-400"
+                                            ></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience Section -->
+        <section id="experience" class="py-20 bg-emerald-900/30">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-16" data-aos="fade-up">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-2">
+                        Work <span class="gradient-text">Experience</span>
+                    </h2>
+                    <div
+                        class="w-24 h-1 bg-gradient-to-r from-green-400 to-emerald-600 mx-auto"
+                    ></div>
+                </div>
+
+                <div class="max-w-3xl mx-auto">
+                    <div class="space-y-12">
+                        <div class="timeline-item" data-aos="fade-up-scroll">
+                            <div class="mb-2">
+                                <span
+                                    class="inline-block px-3 py-1 bg-green-400/20 text-green-400 rounded-full text-sm font-medium"
+                                    >2020 - Present</span
+                                >
+                            </div>
+                            <h3 class="text-xl font-semibold mb-1">
+                                Senior Position
+                            </h3>
+                            <h4 class="text-green-400 mb-3">Company Name</h4>
+                            <p class="text-emerald-100/80">
+                                Lorem ipsum dolor sit amet, consectetur
+                                adipiscing elit. Sed euismod, nunc sit amet
+                                ultricies lacinia, nisl nisl aliquam nisl, eget
+                                aliquam nisl nisl sit amet nisl. Sed euismod,
+                                nunc sit amet ultricies lacinia, nisl nisl
+                                aliquam nisl, eget aliquam nisl nisl sit amet
+                                nisl.
+                            </p>
+                        </div>
+
+                        <div
+                            class="timeline-item"
+                            data-aos="fade-up-scroll"
+                            data-aos-delay="100"
+                        >
+                            <div class="mb-2">
+                                <span
+                                    class="inline-block px-3 py-1 bg-green-400/20 text-green-400 rounded-full text-sm font-medium"
+                                    >2018 - 2020</span
+                                >
+                            </div>
+                            <h3 class="text-xl font-semibold mb-1">
+                                Mid-Level Position
+                            </h3>
+                            <h4 class="text-green-400 mb-3">Company Name</h4>
+                            <p class="text-emerald-100/80">
+                                Lorem ipsum dolor sit amet, consectetur
+                                adipiscing elit. Sed euismod, nunc sit amet
+                                ultricies lacinia, nisl nisl aliquam nisl, eget
+                                aliquam nisl nisl sit amet nisl. Sed euismod,
+                                nunc sit amet ultricies lacinia, nisl nisl
+                                aliquam nisl, eget aliquam nisl nisl sit amet
+                                nisl.
+                            </p>
+                        </div>
+
+                        <div
+                            class="timeline-item"
+                            data-aos="fade-up-scroll"
+                            data-aos-delay="200"
+                        >
+                            <div class="mb-2">
+                                <span
+                                    class="inline-block px-3 py-1 bg-green-400/20 text-green-400 rounded-full text-sm font-medium"
+                                    >2016 - 2018</span
+                                >
+                            </div>
+                            <h3 class="text-xl font-semibold mb-1">
+                                Junior Position
+                            </h3>
+                            <h4 class="text-green-400 mb-3">Company Name</h4>
+                            <p class="text-emerald-100/80">
+                                Lorem ipsum dolor sit amet, consectetur
+                                adipiscing elit. Sed euismod, nunc sit amet
+                                ultricies lacinia, nisl nisl aliquam nisl, eget
+                                aliquam nisl nisl sit amet nisl. Sed euismod,
+                                nunc sit amet ultricies lacinia, nisl nisl
+                                aliquam nisl, eget aliquam nisl nisl sit amet
+                                nisl.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="py-20 bg-emerald-950/70">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-16" data-aos="fade-up">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-2">
+                        My <span class="gradient-text">Projects</span>
+                    </h2>
+                    <div
+                        class="w-24 h-1 bg-gradient-to-r from-green-400 to-emerald-600 mx-auto"
+                    ></div>
+                </div>
+
+                <div
+                    class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+                >
+                    <div
+                        class="project-card gradient-border p-1"
+                        data-aos="fade-up-scroll"
+                    >
+                        <div
+                            class="bg-emerald-900/50 rounded-lg overflow-hidden h-full"
+                        >
+                            <div
+                                class="h-48 bg-gradient-to-br from-green-400 to-emerald-600 flex items-center justify-center"
+                            >
+                                <i
+                                    class="fas fa-laptop-code text-5xl text-white"
+                                ></i>
+                            </div>
+                            <div class="p-6">
+                                <h3 class="text-xl font-semibold mb-2">
+                                    Project One
+                                </h3>
+                                <p class="text-emerald-100/80 mb-4">
+                                    Lorem ipsum dolor sit amet, consectetur
+                                    adipiscing elit. Sed euismod, nunc sit amet
+                                    ultricies lacinia.
+                                </p>
+                                <div class="flex flex-wrap gap-2 mb-6">
+                                    <span
+                                        class="px-3 py-1 bg-green-400/20 text-green-400 rounded-full text-xs"
+                                        >Skill 1</span
+                                    >
+                                    <span
+                                        class="px-3 py-1 bg-green-400/20 text-green-400 rounded-full text-xs"
+                                        >Skill 2</span
+                                    >
+                                    <span
+                                        class="px-3 py-1 bg-green-400/20 text-green-400 rounded-full text-xs"
+                                        >Skill 3</span
+                                    >
+                                </div>
+                                <a
+                                    href="#"
+                                    class="inline-block text-green-400 hover:text-green-300 transition-colors"
+                                >
+                                    View Project
+                                    <i class="fas fa-arrow-right ml-1"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div
+                        class="project-card gradient-border p-1"
+                        data-aos="fade-up-scroll"
+                        data-aos-delay="100"
+                    >
+                        <div
+                            class="bg-emerald-900/50 rounded-lg overflow-hidden h-full"
+                        >
+                            <div
+                                class="h-48 bg-gradient-to-br from-emerald-400 to-green-600 flex items-center justify-center"
+                            >
+                                <i
+                                    class="fas fa-mobile-alt text-5xl text-white"
+                                ></i>
+                            </div>
+                            <div class="p-6">
+                                <h3 class="text-xl font-semibold mb-2">
+                                    Project Two
+                                </h3>
+                                <p class="text-emerald-100/80 mb-4">
+                                    Lorem ipsum dolor sit amet, consectetur
+                                    adipiscing elit. Sed euismod, nunc sit amet
+                                    ultricies lacinia.
+                                </p>
+                                <div class="flex flex-wrap gap-2 mb-6">
+                                    <span
+                                        class="px-3 py-1 bg-green-400/20 text-green-400 rounded-full text-xs"
+                                        >Skill 1</span
+                                    >
+                                    <span
+                                        class="px-3 py-1 bg-green-400/20 text-green-400 rounded-full text-xs"
+                                        >Skill 2</span
+                                    >
+                                    <span
+                                        class="px-3 py-1 bg-green-400/20 text-green-400 rounded-full text-xs"
+                                        >Skill 3</span
+                                    >
+                                </div>
+                                <a
+                                    href="#"
+                                    class="inline-block text-green-400 hover:text-green-300 transition-colors"
+                                >
+                                    View Project
+                                    <i class="fas fa-arrow-right ml-1"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div
+                        class="project-card gradient-border p-1"
+                        data-aos="fade-up-scroll"
+                        data-aos-delay="200"
+                    >
+                        <div
+                            class="bg-emerald-900/50 rounded-lg overflow-hidden h-full"
+                        >
+                            <div
+                                class="h-48 bg-gradient-to-br from-green-500 to-teal-600 flex items-center justify-center"
+                            >
+                                <i
+                                    class="fas fa-chart-line text-5xl text-white"
+                                ></i>
+                            </div>
+                            <div class="p-6">
+                                <h3 class="text-xl font-semibold mb-2">
+                                    Project Three
+                                </h3>
+                                <p class="text-emerald-100/80 mb-4">
+                                    Lorem ipsum dolor sit amet, consectetur
+                                    adipiscing elit. Sed euismod, nunc sit amet
+                                    ultricies lacinia.
+                                </p>
+                                <div class="flex flex-wrap gap-2 mb-6">
+                                    <span
+                                        class="px-3 py-1 bg-green-400/20 text-green-400 rounded-full text-xs"
+                                        >Skill 1</span
+                                    >
+                                    <span
+                                        class="px-3 py-1 bg-green-400/20 text-green-400 rounded-full text-xs"
+                                        >Skill 2</span
+                                    >
+                                    <span
+                                        class="px-3 py-1 bg-green-400/20 text-green-400 rounded-full text-xs"
+                                        >Skill 3</span
+                                    >
+                                </div>
+                                <a
+                                    href="#"
+                                    class="inline-block text-green-400 hover:text-green-300 transition-colors"
+                                >
+                                    View Project
+                                    <i class="fas fa-arrow-right ml-1"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="text-center mt-12" data-aos="fade-up">
+                    <a
+                        href="#"
+                        class="inline-block px-8 py-3 border border-green-400 text-green-400 rounded-full font-semibold hover:bg-green-400 hover:text-emerald-900 transition-all"
+                    >
+                        View All Projects
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-20 bg-emerald-900/30">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-16" data-aos="fade-up">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-2">
+                        Get In <span class="gradient-text">Touch</span>
+                    </h2>
+                    <div
+                        class="w-24 h-1 bg-gradient-to-r from-green-400 to-emerald-600 mx-auto"
+                    ></div>
+                </div>
+
+                <div class="flex flex-col md:flex-row gap-10">
+                    <div class="md:w-1/2" data-aos="fade-right">
+                        <div class="gradient-border p-1">
+                            <div class="bg-emerald-900/50 p-8 rounded-lg">
+                                <h3 class="text-2xl font-semibold mb-6">
+                                    Contact Information
+                                </h3>
+
+                                <div class="space-y-6">
+                                    <div class="flex items-start">
+                                        <div
+                                            class="contact-icon mr-4 text-green-400 text-xl"
+                                        >
+                                            <i class="fas fa-envelope"></i>
+                                        </div>
+                                        <div>
+                                            <h4 class="font-medium mb-1">
+                                                Email
+                                            </h4>
+                                            <p class="text-emerald-100/80">
+                                                your.email@example.com
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                    <div class="flex items-start">
+                                        <div
+                                            class="contact-icon mr-4 text-green-400 text-xl"
+                                        >
+                                            <i class="fas fa-phone-alt"></i>
+                                        </div>
+                                        <div>
+                                            <h4 class="font-medium mb-1">
+                                                Phone
+                                            </h4>
+                                            <p class="text-emerald-100/80">
+                                                +1 (123) 456-7890
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                    <div class="flex items-start">
+                                        <div
+                                            class="contact-icon mr-4 text-green-400 text-xl"
+                                        >
+                                            <i
+                                                class="fas fa-map-marker-alt"
+                                            ></i>
+                                        </div>
+                                        <div>
+                                            <h4 class="font-medium mb-1">
+                                                Location
+                                            </h4>
+                                            <p class="text-emerald-100/80">
+                                                City, Country
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="mt-8">
+                                    <h4 class="font-medium mb-4">
+                                        Connect With Me
+                                    </h4>
+                                    <div class="flex space-x-4">
+                                        <a
+                                            href="#"
+                                            class="contact-icon w-10 h-10 rounded-full bg-emerald-800 flex items-center justify-center text-emerald-100/80 hover:text-green-400 transition-colors"
+                                        >
+                                            <i class="fab fa-linkedin-in"></i>
+                                        </a>
+                                        <a
+                                            href="#"
+                                            class="contact-icon w-10 h-10 rounded-full bg-emerald-800 flex items-center justify-center text-emerald-100/80 hover:text-green-400 transition-colors"
+                                        >
+                                            <i class="fab fa-github"></i>
+                                        </a>
+                                        <a
+                                            href="#"
+                                            class="contact-icon w-10 h-10 rounded-full bg-emerald-800 flex items-center justify-center text-emerald-100/80 hover:text-green-400 transition-colors"
+                                        >
+                                            <i class="fab fa-twitter"></i>
+                                        </a>
+                                        <a
+                                            href="#"
+                                            class="contact-icon w-10 h-10 rounded-full bg-emerald-800 flex items-center justify-center text-emerald-100/80 hover:text-green-400 transition-colors"
+                                        >
+                                            <i class="fab fa-instagram"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="md:w-1/2" data-aos="fade-left">
+                        <div class="gradient-border p-1">
+                            <div class="bg-emerald-900/50 p-8 rounded-lg">
+                                <h3 class="text-2xl font-semibold mb-6">
+                                    Send Me a Message
+                                </h3>
+
+                                <form id="contact-form" class="space-y-6">
+                                    <div>
+                                        <label
+                                            for="name"
+                                            class="block mb-2 font-medium"
+                                            >Name</label
+                                        >
+                                        <input
+                                            type="text"
+                                            id="name"
+                                            class="w-full px-4 py-3 bg-emerald-800/50 border border-emerald-700 rounded-lg focus:outline-none focus:border-green-400 transition-colors"
+                                            placeholder="Your Name"
+                                        />
+                                    </div>
+
+                                    <div>
+                                        <label
+                                            for="email"
+                                            class="block mb-2 font-medium"
+                                            >Email</label
+                                        >
+                                        <input
+                                            type="email"
+                                            id="email"
+                                            class="w-full px-4 py-3 bg-emerald-800/50 border border-emerald-700 rounded-lg focus:outline-none focus:border-green-400 transition-colors"
+                                            placeholder="Your Email"
+                                        />
+                                    </div>
+
+                                    <div>
+                                        <label
+                                            for="subject"
+                                            class="block mb-2 font-medium"
+                                            >Subject</label
+                                        >
+                                        <input
+                                            type="text"
+                                            id="subject"
+                                            class="w-full px-4 py-3 bg-emerald-800/50 border border-emerald-700 rounded-lg focus:outline-none focus:border-green-400 transition-colors"
+                                            placeholder="Subject"
+                                        />
+                                    </div>
+
+                                    <div>
+                                        <label
+                                            for="message"
+                                            class="block mb-2 font-medium"
+                                            >Message</label
+                                        >
+                                        <textarea
+                                            id="message"
+                                            rows="4"
+                                            class="w-full px-4 py-3 bg-emerald-800/50 border border-emerald-700 rounded-lg focus:outline-none focus:border-green-400 transition-colors"
+                                            placeholder="Your Message"
+                                        ></textarea>
+                                    </div>
+
+                                    <button
+                                        type="submit"
+                                        class="w-full py-3 bg-gradient-to-r from-green-400 to-emerald-600 rounded-lg font-semibold hover:opacity-90 transition-all"
+                                    >
+                                        Send Message
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="py-8 bg-emerald-950 border-t border-emerald-800">
+            <div class="container mx-auto px-4">
+                <div
+                    class="flex flex-col md:flex-row justify-between items-center"
+                >
+                    <div class="mb-4 md:mb-0">
+                        <a href="#hero" class="text-2xl font-bold gradient-text"
+                            >Your.Name</a
+                        >
+                    </div>
+
+                    <div class="text-emerald-100/80 text-center md:text-right">
+                        <p>&copy; 2023 Your Name. All Rights Reserved.</p>
+                        <p class="text-sm mt-1">
+                            Designed with
+                            <i class="fas fa-heart text-red-500"></i> by Your
+                            Name
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <!-- Back to Top Button -->
+        <button
+            id="back-to-top"
+            class="fixed bottom-6 right-6 w-12 h-12 rounded-full bg-gradient-to-r from-green-400 to-emerald-600 text-white flex items-center justify-center shadow-lg transform scale-0 transition-transform duration-300"
+        >
+            <i class="fas fa-arrow-up"></i>
+        </button>
+
+        <script>
+            // Initialize AOS
+            AOS.init({
+                duration: 800,
+                once: false, // Changed to false to allow animations when scrolling back up
+                mirror: true, // Enable animations when scrolling back up
+            });
+
+            // Mobile Menu Toggle
+            const mobileMenuBtn = document.getElementById("mobile-menu-btn");
+            const mobileMenu = document.getElementById("mobile-menu");
+
+            mobileMenuBtn.addEventListener("click", () => {
+                mobileMenu.classList.toggle("hidden");
+            });
+
+            // Smooth Scrolling for Anchor Links
+            document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+                anchor.addEventListener("click", function (e) {
+                    e.preventDefault();
+
+                    const targetId = this.getAttribute("href");
+                    const targetElement = document.querySelector(targetId);
+
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: "smooth",
+                        });
+
+                        // Close mobile menu if open
+                        if (!mobileMenu.classList.contains("hidden")) {
+                            mobileMenu.classList.add("hidden");
+                        }
+                    }
+                });
+            });
+
+            // Active Navigation Link
+            const sections = document.querySelectorAll("section");
+            const navLinks = document.querySelectorAll(".nav-link");
+
+            window.addEventListener("scroll", () => {
+                let current = "";
+
+                sections.forEach((section) => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.clientHeight;
+
+                    if (pageYOffset >= sectionTop - 100) {
+                        current = section.getAttribute("id");
+                    }
+                });
+
+                navLinks.forEach((link) => {
+                    link.classList.remove("active-nav");
+                    if (link.getAttribute("href") === `#${current}`) {
+                        link.classList.add("active-nav");
+                    }
+                });
+            });
+
+            // Back to Top Button
+            const backToTopBtn = document.getElementById("back-to-top");
+
+            window.addEventListener("scroll", () => {
+                if (window.pageYOffset > 300) {
+                    backToTopBtn.classList.remove("scale-0");
+                    backToTopBtn.classList.add("scale-100");
+                } else {
+                    backToTopBtn.classList.remove("scale-100");
+                    backToTopBtn.classList.add("scale-0");
+                }
+            });
+
+            backToTopBtn.addEventListener("click", () => {
+                window.scrollTo({
+                    top: 0,
+                    behavior: "smooth",
+                });
+
+                // Add animation to hero section when scrolling back to top
+                const heroContent = document.getElementById("hero-content");
+                heroContent.classList.add("hero-animate-up");
+
+                // Remove the class after animation completes
+                setTimeout(() => {
+                    heroContent.classList.remove("hero-animate-up");
+                }, 1000);
+            });
+
+            // Contact Form Submission (Demo)
+            const contactForm = document.getElementById("contact-form");
+
+            contactForm.addEventListener("submit", (e) => {
+                e.preventDefault();
+
+                // Get form values
+                const name = document.getElementById("name").value;
+                const email = document.getElementById("email").value;
+                const subject = document.getElementById("subject").value;
+                const message = document.getElementById("message").value;
+
+                // Simple validation
+                if (name && email && subject && message) {
+                    // In a real application, you would send this data to a server
+                    alert("Thank you for your message! This is a demo form.");
+                    contactForm.reset();
+                } else {
+                    alert("Please fill in all fields.");
+                }
+            });
+
+            // Cursor Glow Effect (Desktop only)
+            const cursorGlow = document.querySelector(".cursor-glow");
+
+            if (window.innerWidth > 768) {
+                document.addEventListener("mousemove", (e) => {
+                    cursorGlow.style.left = `${e.clientX}px`;
+                    cursorGlow.style.top = `${e.clientY}px`;
+                });
+            }
+
+            // Reinitialize skill animations when scrolling back up
+            const skillItems = document.querySelectorAll(".skill-item");
+
+            // Create an Intersection Observer
+            const observer = new IntersectionObserver(
+                (entries) => {
+                    entries.forEach((entry) => {
+                        if (entry.isIntersecting) {
+                            const skillBar =
+                                entry.target.querySelector(".skill-progress");
+                            // Reset the animation by removing and adding the element
+                            const parent = skillBar.parentNode;
+                            const width = skillBar.style.width;
+
+                            // Clone and replace to restart animation
+                            const newSkillBar = skillBar.cloneNode(true);
+                            newSkillBar.style.width = width;
+                            parent.removeChild(skillBar);
+                            parent.appendChild(newSkillBar);
+                        }
+                    });
+                },
+                { threshold: 0.1 }
+            );
+
+            // Observe all skill items
+            skillItems.forEach((item) => {
+                observer.observe(item);
+            });
+        </script>
+        <script>
+            (function () {
+                function c() {
+                    var b = a.contentDocument || a.contentWindow.document;
+                    if (b) {
+                        var d = b.createElement("script");
+                        d.innerHTML =
+                            "window.__CF$cv$params={r:'95196ee040665b88',t:'MTc1MDIzNTUxNS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";
+                        b.getElementsByTagName("head")[0].appendChild(d);
+                    }
+                }
+                if (document.body) {
+                    var a = document.createElement("iframe");
+                    a.height = 1;
+                    a.width = 1;
+                    a.style.position = "absolute";
+                    a.style.top = 0;
+                    a.style.left = 0;
+                    a.style.border = "none";
+                    a.style.visibility = "hidden";
+                    document.body.appendChild(a);
+                    if ("loading" !== document.readyState) c();
+                    else if (window.addEventListener)
+                        document.addEventListener("DOMContentLoaded", c);
+                    else {
+                        var e = document.onreadystatechange || function () {};
+                        document.onreadystatechange = function (b) {
+                            e(b);
+                            "loading" !== document.readyState &&
+                                ((document.onreadystatechange = e), c());
+                        };
+                    }
+                }
+            })();
+        </script>
+    </body>
+</html>
