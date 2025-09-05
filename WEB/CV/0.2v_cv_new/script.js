@@ -6,12 +6,19 @@ window.addEventListener("scroll", () => {
     } else {
         header.classList.remove("scrolled");
     }
+
+    const navLinks = document.querySelector('.nav-links');
+    if (window.scrollY > 100) {
+        navLinks.classList.add('scrolled');
+    } else {
+        navLinks.classList.remove('scrolled');
+    }
 });
 
 // Scroll animations
 const animateOnScroll = () => {
     const elements = document.querySelectorAll(
-        ".timeline-item, .skills-category, .language-item, .project-item, .contact-info, .contact-form"
+        ".timeline-item, .skills-category, .language-item, .project-item, .contact-info, .contact-form, .about-content"
     );
 
     elements.forEach((element) => {
