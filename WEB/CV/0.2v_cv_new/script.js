@@ -1,16 +1,12 @@
 // Header scroll effect
 const header = document.getElementById("header");
+const navLinks = document.querySelector('.nav-links');
 window.addEventListener("scroll", () => {
     if (window.scrollY > 100) {
         header.classList.add("scrolled");
-    } else {
-        header.classList.remove("scrolled");
-    }
-
-    const navLinks = document.querySelector('.nav-links');
-    if (window.scrollY > 100) {
         navLinks.classList.add('scrolled');
     } else {
+        header.classList.remove("scrolled");
         navLinks.classList.remove('scrolled');
     }
 });
@@ -203,3 +199,38 @@ document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
         });
     });
 })();
+
+
+
+function glitchOnce(el, originalText) {
+    const chars = "!<>-_\\/[]{}—=+*^?#________";
+    const textArray = originalText.split("");
+    const glitchInterval = setInterval(() => {
+        const newText = textArray
+            .map((letter) =>
+                Math.random() < 0.3
+                    ? chars[Math.floor(Math.random() * chars.length)]
+                    : letter
+            )
+            .join("");
+        el.textContent = newText;
+    }, 50);
+
+    setTimeout(() => {
+        clearInterval(glitchInterval);
+        el.textContent = originalText;
+    }, 800);
+}
+
+function randomGlitchLoop(el, originalText) {
+    setTimeout(() => {
+        glitchOnce(el, originalText);
+        randomGlitchLoop(el, originalText);
+    }, Math.random() * 5000 + 15000); // 15s–20s
+}
+
+// Apply glitch to all headers with .glitch
+document.querySelectorAll(".glitch").forEach((el) => {
+    const originalText = el.textContent;
+    randomGlitchLoop(el, originalText);
+});
