@@ -317,11 +317,9 @@ header.scrolled {
 
 /* About Section */
 #about {
-    background-color: var(--dark-surface);
-}
-.about-bg {
     background: url("aboutme.png");
 }
+
 .about-content {
     display: flex;
     flex-direction: column;
