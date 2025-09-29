@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="sk">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Alphabetical Line Sorter</title>
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+        <div class="container">
+            <h1>📝 Zoraďovač riadkov</h1>
+            <p class="subtitle">
+                Zoradí riadky podľa abecedy na základe prvého písmena
+            </p>
+
+            <div class="example">
+                <strong>Príklad vstupu:</strong><br />
+                Zebra; Pes; Auto; Mačka; Banán
+            </div>
+
+            <label for="input"
+                >Zadajte text (riadky oddelené bodkočiarkou ;):</label
+            >
+            <textarea
+                id="input"
+                rows="6"
+                placeholder="Napríklad: Zebra; Pes; Auto; Mačka; Banán"
+            ></textarea>
+
+            <button onclick="sortLines()">Zoradiť</button>
+
+            <div class="output-section" id="outputSection">
+                <label>Výsledok:</label>
+                <div id="output"></div>
+            </div>
+        </div>
+
+        <script src="script.js"></script>
+    </body>
+</html>
