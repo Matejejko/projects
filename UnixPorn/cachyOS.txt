@@ -9,3 +9,28 @@ pywal					color theme based on bg
 
 pc info in terminal			fastfetch
 terminal				kitty
+
+
+asus
+	pacman -S asusctl
+	systemctl enable --now power-profiles-daemon.service
+
+rofi
+
+	download 
+		https://github.com/kianblakley/niri-land/tree/main
+	move the rofi conf to ur .conf	
+
+	vim  ~/.config/niri/con...
+
+		MOD+D		rofi -show drun -theme ~/.config/rofi/appdrawer.rasi
+
+ 
+kitty
+	
+	pacman -S kitty
+	kitten themes - choose one
+	go vim ~/.config/kitty/kitty.conf
+		zapni transparency
+
+
