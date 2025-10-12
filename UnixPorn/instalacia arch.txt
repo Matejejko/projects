@@ -1,0 +1,120 @@
+instalacia arch
+	install script
+	video:
+		Install Arch Linux On Separate Drive | Dual Boot Windows | GRUB UEFI
+
+microcode
+	 	pacman -S amd-ucode
+
+		check it with:	journalctl -k --grep='microcode:'
+
+setting up asus rog
+====================
+
+  Installation
+  -------------
+		pacman -S linux-firmware
+
+	g14 repo contains all the tools you need on a ROG laptop precompiled for you. 
+	g14 is only a name and all tools from it apply to most ROG laptops Before adding 
+	the repo you need to add the repo sign key to your pacman-key. Run the following 
+	commands to add it:
+
+		pacman-key --recv-keys 8F654886F17D497FEFE3DB448B15A6B0E9A3FA35
+		pacman-key --finger 8F654886F17D497FEFE3DB448B15A6B0E9A3FA35
+		pacman-key --lsign-key 8F654886F17D497FEFE3DB448B15A6B0E9A3FA35
+		pacman-key --finger 8F654886F17D497FEFE3DB448B15A6B0E9A3FA35
+
+	After that to get the repo add to your /etc/pacman.conf at the end:
+	
+		[g14]
+		Server = https://arch.asus-linux.org
+
+	After adding the repo run a full system update before you go to install tools from the repo:
+
+		pacman -Suy
+
+  Asusctl - custom fan profiles, anime, led control etc.
+  ------------------------------------------------------
+
+	The recommended way to install asusctl is using g14 pacman repo. Packages like asusctl-git 
+	rom AUR aren't supported. Also installing manually from cloned git isn't supported. For 
+	nstalling it run:
+
+		pacman -S asusctl power-profiles-daemon
+
+	asusd service is triggered by a udev rule after the keyboard driver is ready, the service 
+	doesn't need to be enabled and is not supposed  to be.
+	power-profiles-daemon is optional but highly recommend, other power management tools can 
+	create conflicts with asusctl or supergfxctl.
+
+		systemctl enable --now power-profiles-daemon.service
+
+  ROG Control Center
+  ------------------
+
+	ROG Control Center is a GUI tool for configuring few aspects of asusctl and supergfxctl. 
+	It was previously part of the asusctl package, but has now been separated as its own package 
+	in G14 repo. After adding the repo to /etc/pacman.conf as stated above, then you can install
+	the tool:
+
+		pacman -S rog-control-center
+
+	
+  Custom kernel - drivers fixes, hardware support
+  -----------------------------------------------
+
+	Newer devices often require custom kernel with patches, that kernel is also available in the
+	g14 pacman repo, to install it just run:
+
+		pacman -Sy linux-g14 linux-g14-headers
+
+	After installing the new kernel you need to regenerate your boot menu or add a new boot entry 
+	depending on what boot manager you are using. For GRUB that will be:
+
+		grub-mkconfig -o /boot/grub/grub.cfg
+
+	
+yay
+====
+
+	git clone https"//aur.archlinux.org/yay.git
+	cd yay
+	makepkg -si
+
+	
+pywal
+=====
+
+	yay -S python-pywal
+
+swww
+=====
+
+	yay -S swww-git
+	swww-daemon
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

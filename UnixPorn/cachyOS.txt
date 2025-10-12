@@ -1,0 +1,11 @@
+cachyOS
+
+WM					niri
+power menu bg selector, app drawer 	rofi
+swww					bg daemon
+overview bar				waybar
+mako 					notifications	?
+pywal					color theme based on bg
+
+pc info in terminal			fastfetch
+terminal				kitty
