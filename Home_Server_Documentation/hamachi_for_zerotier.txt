@@ -1,0 +1,34 @@
+delete Hamachi
+	Stop the Hamachi service
+	sudo systemctl stop logmein-hamachi.service 2>/dev/null || sudo systemctl stop hamachi 2>/dev/null
+
+	Disable it from starting on boot
+	sudo systemctl disable logmein-hamachi.service 2>/dev/null || sudo systemctl disable hamachi 2>/dev/null
+
+	Remove the package
+	sudo apt-get remove --purge logmein-hamachi -y
+	sudo apt-get autoremove -y
+
+	Remove leftover config
+	sudo rm -rf /etc/logmein-hamachi /var/lib/logmein-hamachi
+
+	Remove Hamachi rule from UFW
+	sudo ufw status numbered
+
+	sudo ufw delete ... (1, 2, ...)
+
+Install ZeroTier on Ubuntu
+
+	curl -s https://install.zerotier.com | sudo bash
+	sudo systemctl status zerotier-one
+
+	Join a ZeroTier network
+	sudo zerotier-cli join <NETWORK_ID>
+
+	sudo zerotier-cli listnetworks
+
+	Allow the Vintage Story server port only on ZeroTier
+	sudo ufw allow in on ztsjsl3deb to any port 42420 proto udp
+
+	
+	sudo systemctl enable zerotier-one

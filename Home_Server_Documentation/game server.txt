@@ -1,0 +1,64 @@
+game server
+
+.NET 8.0
+	wget https://dot.net/v1/dotnet-install.sh -O dotnet-install.sh
+	(Downloads the install script)
+	chmod +x ./dotnet-install.sh
+	(Makes the install script executable)
+	./dotnet-install.sh --channel 8.0
+	(Execute the install script and install .NET 8)
+
+	In your terminal, execute this command to find out which shell you use:
+	echo $SHELL
+	Now open one of the files corresponding to your shell (you can use any editor you like):
+	bash: nano ~/.bash_profile or nano ~/.bashrc
+	zsh: nano ~/.zshrc or nano ~/.zprofile
+	If it is neither of these two, search for the relevant files online (e.g. "set environment variables fish")
+	Add the following two lines at the end of the file and save it (in nano, saving can be done by pressing STRG+X then Y then ENTER):
+	export DOTNET_ROOT=$HOME/.dotnet
+	export PATH=$PATH:$DOTNET_ROOT:$DOTNET_ROOT/tools
+	Logout & Login or restart your PC (Just running exec bash or exec zsh to restart the shell may also be sufficient)
+	To check if it worked, open a terminal and execute echo $DOTNET_ROOT; if the output is /home/YOURUSERNAME/.dotnet it worked!
+
+ sudo apt update && sudo apt install procps screen
+
+Create a non-root user
+	On most Linux operating systems, you can create a user with the command useradd.
+
+	$ sudo useradd vintagestory -m
+	Now, log in to the new user account.
+
+	$ sudo su -l vintagestory
+	This will place you in the vintagestory user's home directory as if you had logged in normally. You will not need to leave the home directory for the remainder of this tutorial.
+
+Download the server software
+	
+	wget https://cdn.vintagestory.at/gamefiles/stable/vs_server_linux-x64_1.21.5.tar.gz
+
+	mkdir server && tar -C server -xzf vs_server_linux-x64_*.*.*.tar.gz
+
+	rm vs_server_linux_*.*.*.tar.gz
+
+$ sudo ufw allow 42420/tcp
+$ sudo ufw allow 42420/udp
+
+ok no trz to iba zapnes vypnes nastavis /var/vintagesotry/data/config file ci ako 
+spravis world cez svoju hru a presunies ten world do /var/vintagestory/data/save 
+
+
+Hamachi
+
+cd /tmp
+wget https://secure.logmein.com/labs/logmein-hamachi_2.1.0.203-1_amd64.deb
+sudo apt install -y ./logmein-hamachi_2.1.0.203-1_amd64.deb
+sudo systemctl enable --now logmein-hamachi
+ sudo hamachi login
+sudo hamachi set-nick vintagestory-server
+sudo hamachi join vintage_story42069 abc123
+sudo hamachi go-online vintage_story42069
+
+# Check the interface name (usually ham0)
+ip addr | grep -A2 ham
+
+Configure UFW to only allow port 42420 on Hamachi
+	
