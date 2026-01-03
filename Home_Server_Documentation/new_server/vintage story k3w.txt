@@ -1,0 +1,161 @@
+# 1. Delete the deployment (stops running pods)
+sudo kubectl delete deployment vintage-story
+
+# 2. Delete the service
+sudo kubectl delete service vintage-story
+
+# 3. Delete the PVC
+sudo kubectl delete pvc vintage-story-pvc
+
+# 4. Delete the PV
+sudo kubectl delete pv vintage-story-pv
+
+# 6. Apply new YAML
+sudo kubectl apply -f vintage-story-all-in-one.yaml
+
+# 7. Check PV/PVC status
+sudo kubectl get pv,pvc
+
+# 8. Check pod status
+sudo kubectl get pods -o wide
+
+# 9. Check service
+sudo kubectl get svc
+
+
+
+run it again a new
+
+sudo kubectl apply -f vintage-story-all-in-one.yaml
+
+display services
+kubectl get svc
+
+-//- pvc
+kubectl get pvc
+
+
+
+stop pod
+sudo kubectl scale statefulset vintage-story --replicas=0
+
+restart deployment
+kubectl rollout restart deployment <name> -n <namespace>
+
+	If you don’t know the namespace:
+	kubectl get pods -A | grep name
+
+vintage story
+################
+
+Create these 3 files exactly:
+1. manual-sc.yaml
+text
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  name: manual
+provisioner: kubernetes.io/no-provisioner
+volumeBindingMode: WaitForFirstConsumer
+
+2. pv-pvc.yaml
+text
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: vintage-story-pv
+spec:
+  capacity:
+    storage: 50Gi
+  accessModes:
+    - ReadWriteOnce
+  storageClassName: manual
+  persistentVolumeReclaimPolicy: Retain
+  hostPath:
+    path: /game_servers/vintage_story
+    type: DirectoryOrCreate
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: vintage-story-pvc
+spec:
+  accessModes:
+    - ReadWriteOnce
+  storageClassName: manual
+  resources:
+    requests:
+      storage: 50Gi
+
+3. statefulset.yaml
+text
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: vintage-story
+spec:
+  serviceName: vintage-story
+  replicas: 1
+  selector:
+    matchLabels:
+      app: vintage-story
+  template:
+    metadata:
+      labels:
+        app: vintage-story
+    spec:
+      containers:
+      - name: vintage-story
+        image: zsuatem/vintagestory:1.21.6
+        ports:
+        - containerPort: 42420
+        resources:
+          requests:
+            cpu: "4"
+            memory: "8Gi"
+          limits:
+            cpu: "8"
+            memory: "16Gi"
+        volumeMounts:
+        - name: world-data
+          mountPath: /vintagestory/data
+      volumes:
+      - name: world-data
+        persistentVolumeClaim:
+          claimName: vintage-story-pvc
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: vintage-story
+spec:
+  type: NodePort
+  selector:
+    app: vintage-story
+  ports:
+    - port: 42420
+      targetPort: 42420
+      nodePort: 32420
+
+
+Execute these commands in order:
+bash
+# 1. Prepare host directory
+sudo mkdir -p /game_servers/vintage_story
+sudo chown -R 1000:1000 /game_servers/vintage_story
+sudo chmod -R 755 /game_servers/vintage_story
+
+# 2. Apply StorageClass, PV, PVC
+sudo kubectl apply -f manual-sc.yaml
+sudo kubectl apply -f pv-pvc.yaml
+
+# 3. Verify PV/PVC bound
+sudo kubectl get pv,pvc
+
+# 4. Apply StatefulSet + Service
+sudo kubectl apply -f statefulset.yaml
+
+# 5. Verify pod running
+sudo kubectl get pods
+
+# 6. Test 2-way sync

@@ -1,0 +1,100 @@
+jellyfin.
+
+/services	- lv_services - 100G
+/movies		- lv_movie - 1T
+own 1000:1000
+
+jelly.yaml:
+
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: jellyfin
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: jellyfin
+  namespace: jellyfin
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: jellyfin
+  template:
+    metadata:
+      labels:
+        app: jellyfin
+    spec:
+      containers:
+      - name: jellyfin
+        image: jellyfin/jellyfin:latest
+        env:
+        - name: PUID
+          value: "1000"
+        - name: PGID
+          value: "1000"
+        - name: TZ
+          value: "Europe/Bratislava"
+        ports:
+        - containerPort: 8096
+          name: http
+        volumeMounts:
+        - name: config
+          mountPath: /config
+        - name: media
+          mountPath: /media
+      volumes:
+      - name: config
+        hostPath:
+          path: /services/jellyfin
+          type: DirectoryOrCreate
+      - name: media
+        hostPath:
+          path: /movies
+          type: Directory
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: jellyfin
+  namespace: jellyfin
+spec:
+  selector:
+    app: jellyfin
+  type: NodePort  # Changed from ClusterIP
+  ports:
+  - port: 8096
+    targetPort: 8096
+    protocol: TCP
+    name: http
+    nodePort: 30096  # Fixed high port (30000-32767 range); auto-assigned if omitted
+
+
+Create a script (e.g., /usr/local/bin/iptables-startup.sh):
+
+#!/bin/bash
+iptables -t raw -I PREROUTING 1 -p tcp --dport 30096 -j DROP
+sudo iptables -t raw -I PREROUTING 1 -s 192.168.0.0/24 -p tcp --dport 30096 -j ACCEPT
+sudo iptables -t raw -I PREROUTING 1 -s 100.64.0.0/10 -p tcp --dport 30096 -j ACCEPT
+
+sudo chmod +x /usr/local/bin/iptables-startup.sh
+
+Create /etc/systemd/system/iptables-startup.service:
+[Unit]
+Description=Custom iptables rules
+After=network.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/bin/iptables-startup.sh
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target
+
+Enable and start the service:
+
+sudo systemctl daemon-reload
+sudo systemctl enable iptables-startup.service
+sudo systemctl start iptables-startup.service

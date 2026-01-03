@@ -1,0 +1,78 @@
+mv html to /services/pomodoro/
+				index.html
+				style.css
+				script.js
+
+there do: sudo kubectl create configmap pomodoro-web --from-file=index.html --from-file=style.css --from-file=script.js
+
+make a deployment.yaml:
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pomodoro
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: pomodoro
+  template:
+    metadata:
+      labels:
+        app: pomodoro
+    spec:
+      containers:
+      - name: nginx
+        image: nginx:alpine
+        ports:
+        - containerPort: 80
+        volumeMounts:
+        - name: website
+          mountPath: /usr/share/nginx/html
+      volumes:
+      - name: website
+        configMap:
+          name: pomodoro-web
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: pomodoro
+spec:
+  type: NodePort
+  selector:
+    app: pomodoro
+  ports:
+    - port: 80
+      targetPort: 80
+      nodePort: 30808
+
+and: sudo kubectl apply -f pomodoro.yaml
+
+Create or adjust a script (e.g., /usr/local/bin/iptables-startup.sh):
+
+#!/bin/bash
+sudo iptables -t raw -I PREROUTING 1 -p tcp --dport 30808 -j DROP
+sudo iptables -t raw -I PREROUTING 1 -s 192.168.0.0/24 -p tcp --dport 30808 -j ACCEPT
+sudo iptables -t raw -I PREROUTING 1 -s 100.64.0.0/10 -p tcp --dport 30808 -j ACCEPT
+
+sudo chmod +x /usr/local/bin/iptables-startup.sh
+
+Create /etc/systemd/system/iptables-startup.service:
+[Unit]
+Description=Custom iptables rules
+After=network.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/bin/iptables-startup.sh
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target
+
+Enable and start the service:
+
+sudo systemctl daemon-reload
+sudo systemctl enable iptables-startup.service
+sudo systemctl start iptables-startup.service

@@ -1,0 +1,28 @@
+k3s install
+rancher for gui
+
+curl -sfL https://get.k3s.io | sh -	--	install k3s
+
+
+k3s server --write-kubeconfig-mode=644 	--	inter connect with rancher gui
+
+
+install helm (to make rancher work)
+	$ curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-4
+	$ chmod 700 get_helm.sh
+	$ ./get_helm.sh
+
+	helm version
+
+rancher instructions
+https://ranchermanager.docs.rancher.com/getting-started/quick-start-guides/deploy-rancher-manager/helm-cli
+
+
+VPN TUNNEL
+
+tailscale
+https://tailscale.com/kb/1031/install-linux
+
+zerotier
+https://www.zerotier.com/download/
+https://docs.zerotier.com/quickstart/
