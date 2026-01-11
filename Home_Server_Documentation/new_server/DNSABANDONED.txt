@@ -1,0 +1,22 @@
+DNS
+
+sudo vim /etc/dnsmasq.d/mrmserver.conf
+
+Add all your mappings:
+
+address=/mrmserver.pomodoro/192.168.0.101
+address=/mrmserver.jellyfin/192.168.0.101
+address=/mrmserver.opencloud/192.168.0.101
+
+sudo systemctl restart dnsmasq
+
+
+3. Make devices use this DNS
+locally windows
+	Press Win + R → type ncpa.cpl → Enter.
+	
+
+
+
+tailscale:
+	dns -> 

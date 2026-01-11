@@ -1,0 +1,5 @@
+make stuff that is only locally on 192 accessible
+
+sudo tailscale up --advertise-routes=192.168.0.0/24
+
+on tailscale go devices server edit route setting enable save done

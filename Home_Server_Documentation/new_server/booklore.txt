@@ -1,0 +1,150 @@
+booklore
+########
+
+ mkdir -p /services/booklore/{config/mariadb,data,books,bookdrop}
+
+namespace
+
+sudo kubectl create namespace booklore
+
+booklore-service.yaml:
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: booklore
+  namespace: booklore
+spec:
+  type: NodePort
+  selector:
+    app: booklore
+  ports:
+    - port: 6060
+      targetPort: 6060
+      nodePort: 30606
+
+booklore.yaml:
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: booklore
+  namespace: booklore
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: booklore
+  template:
+    metadata:
+      labels:
+        app: booklore
+    spec:
+      containers:
+        - name: booklore
+          image: booklore/booklore:latest
+          env:
+            - name: USER_ID
+              value: "0"
+            - name: GROUP_ID
+              value: "0"
+            - name: TZ
+              value: Europe/Bratislava
+            - name: DATABASE_URL
+              value: jdbc:mariadb://mariadb.booklore.svc.cluster.local:3306/booklore
+            - name: DATABASE_USERNAME
+              value: booklore
+            - name: DATABASE_PASSWORD
+              value: Pa$$w0rd
+            - name: BOOKLORE_PORT
+              value: "6060"
+          ports:
+            - containerPort: 6060
+          volumeMounts:
+            - mountPath: /app/data
+              name: data
+            - mountPath: /books
+              name: books
+            - mountPath: /bookdrop
+              name: bookdrop
+      volumes:
+        - name: data
+          hostPath:
+            path: /services/booklore/data
+            type: DirectoryOrCreate
+        - name: books
+          hostPath:
+            path: /services/booklore/books
+            type: DirectoryOrCreate
+        - name: bookdrop
+          hostPath:
+            path: /services/booklore/bookdrop
+            type: DirectoryOrCreate
+
+mariadb.yaml:
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mariadb
+  namespace: booklore
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mariadb
+  template:
+    metadata:
+      labels:
+        app: mariadb
+    spec:
+      containers:
+        - name: mariadb
+          image: lscr.io/linuxserver/mariadb:11.4.5
+          env:
+            - name: PUID
+              value: "1001"
+            - name: PGID
+              value: "1001"
+            - name: TZ
+              value: Europe/Bratislava
+            - name: MYSQL_ROOT_PASSWORD
+              value: Pa$$w0rd
+            - name: MYSQL_DATABASE
+              value: booklore
+            - name: MYSQL_USER
+              value: booklore
+            - name: MYSQL_PASSWORD
+              value: Pa$$w0rd
+          ports:
+            - containerPort: 3306
+          volumeMounts:
+            - mountPath: /config
+              name: mariadb-config
+      volumes:
+        - name: mariadb-config
+          hostPath:
+            path: /services/booklore/config/mariadb
+            type: DirectoryOrCreate
+
+mariadb-service.yaml:
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: mariadb
+  namespace: booklore
+spec:
+  selector:
+    app: mariadb
+  ports:
+    - port: 3306
+
+
+sudo kubectl apply -f mariadb.yaml
+sudo kubectl apply -f mariadb-service.yaml
+sudo kubectl apply -f booklore.yaml
+sudo kubectl apply -f booklore-service.yaml
+
+
+and guys thats basically it

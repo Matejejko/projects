@@ -1,0 +1,142 @@
+opencloud 
+
+create /service/opencloud
+
+create deployment.yaml:
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: opencloud
+
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: opencloud
+  namespace: opencloud
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: opencloud
+  template:
+    metadata:
+      labels:
+        app: opencloud
+    spec:
+      securityContext:
+        runAsUser: 1000
+        runAsGroup: 1000
+        fsGroup: 1000
+      containers:
+      - name: opencloud
+        image: opencloudeu/opencloud-rolling
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 9200
+        command: ["/bin/sh", "-c"]
+        args:
+          - >
+            opencloud init --insecure true || true;
+            opencloud server
+        env:
+          - name: IDM_CREATE_DEMO_USERS
+            value: "true"
+          - name: OC_INSECURE
+            value: "true"
+          - name: OC_URL
+            value: "https://192.168.0.101"
+        volumeMounts:
+          - name: opencloud-data
+            mountPath: /var/lib/opencloud
+          - name: opencloud-config
+            mountPath: /etc/opencloud
+      volumes:
+      - name: opencloud-data
+        hostPath:
+          path: /services/opencloud/data
+          type: DirectoryOrCreate
+      - name: opencloud-config
+        hostPath:
+          path: /services/opencloud/config
+          type: DirectoryOrCreate
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: opencloud
+  namespace: opencloud
+spec:
+  selector:
+    app: opencloud
+  ports:
+    - port: 9200
+      targetPort: 9200
+
+
+create ingress.yaml:
+
+apiVersion: traefik.io/v1alpha1
+kind: ServersTransport
+metadata:
+  name: opencloud-transport
+  namespace: opencloud
+spec:
+  insecureSkipVerify: true
+
+---
+
+apiVersion: traefik.io/v1alpha1
+kind: Middleware
+metadata:
+  name: opencloud-headers
+  namespace: opencloud
+spec:
+  headers:
+    customRequestHeaders:
+      X-Forwarded-Proto: "https"
+      Host: "192.168.0.101"
+
+---
+apiVersion: traefik.io/v1alpha1
+kind: IngressRoute
+metadata:
+  name: opencloud-ingressroute
+  namespace: opencloud
+spec:
+  entryPoints:
+  - websecure
+  routes:
+  - match: Host(`192.168.0.101`)
+    kind: Rule
+    middlewares:
+      - name: opencloud-headers
+    services:
+      - name: opencloud
+        port: 9200
+        scheme: https
+        serversTransport: opencloud-transport  # Skips self-signed cert verification
+  tls: {}
+
+
+sudo kubectl apply -f ~/services/opencloud/ingressroute.yaml
+sudo kubectl apply -f ~/services/opencloud/deployment.yaml
+
+chech:
+ sudo kubectl logs -n opencloud deploy/opencloud
+
+if a error about writing do:
+ sudo chown 1000:1000 /services/opencloud/*
+ sudo kubectl rollout restart deployment opencloud -n opencloud
+
+or rm -f /services/opencloud/config/* && rm -Rf /services/opencloud/data/*
+
+opencloud 2.0
+
+git clone https://github.com/opencloud-eu/helm.git
+cd helm/charts/opencloud
+
+
