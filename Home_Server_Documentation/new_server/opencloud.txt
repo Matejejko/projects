@@ -134,9 +134,12 @@ if a error about writing do:
 
 or rm -f /services/opencloud/config/* && rm -Rf /services/opencloud/data/*
 
-opencloud 2.0
+k now its done go https://192.168.0.101 
+and get log in stuff from 
+sudo kubectl logs -n opencloud deploy/opencloud
 
-git clone https://github.com/opencloud-eu/helm.git
-cd helm/charts/opencloud
+when in make new admin account and delete the one u login with for the first time
+
+
 
 
