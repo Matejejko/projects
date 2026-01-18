@@ -1,0 +1,148 @@
+opencloud full
+
+make full_deployment.yaml:
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: opencloud
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: opencloud
+  namespace: opencloud
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: opencloud
+  template:
+    metadata:
+      labels:
+        app: opencloud
+    spec:
+      containers:
+      - name: opencloud
+        image: opencloudeu/opencloud-rolling
+        ports:
+        - containerPort: 9200
+        command: ["/bin/sh","-c"]
+        args:
+          - |
+            opencloud init --insecure true || true
+            opencloud server
+        env:
+        - name: OC_URL
+          value: "https://mrmserver.opencloud"
+        - name: OC_INSECURE
+          value: "true"
+        - name: IDM_CREATE_DEMO_USERS
+          value: "true"
+        - name: COLLABORA_DOMAIN
+          value: "mrmserver.collabora"
+        - name: COLLABORA_SSL_ENABLE
+          value: "false"
+        - name: COLLABORA_SSL_VERIFICATION
+          value: "false"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: opencloud
+  namespace: opencloud
+spec:
+  selector:
+    app: opencloud
+  ports:
+  - port: 9200
+    targetPort: 9200
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: collabora
+  namespace: opencloud
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: collabora
+  template:
+    metadata:
+      labels:
+        app: collabora
+    spec:
+      containers:
+      - name: collabora
+        image: collabora/code
+        ports:
+        - containerPort: 9980
+        env:
+        - name: domain
+          value: mrmserver\\.opencloud
+        - name: extra_params
+          value: "--o:ssl.enable=false"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: collabora
+  namespace: opencloud
+spec:
+  selector:
+    app: collabora
+  ports:
+  - port: 9980
+    targetPort: 9980
+---
+apiVersion: traefik.io/v1alpha1
+kind: ServersTransport
+metadata:
+  name: insecure-transport
+  namespace: opencloud
+spec:
+  insecureSkipVerify: true
+---
+apiVersion: traefik.io/v1alpha1
+kind: IngressRoute
+metadata:
+  name: opencloud
+  namespace: opencloud
+spec:
+  entryPoints:
+  - websecure
+  routes:
+  - match: Host(`mrmserver.opencloud`)
+    kind: Rule
+    services:
+    - name: opencloud
+      port: 9200
+      scheme: https
+      serversTransport: insecure-transport
+  tls: {}
+---
+apiVersion: traefik.io/v1alpha1
+kind: IngressRoute
+metadata:
+  name: collabora
+  namespace: opencloud
+spec:
+  entryPoints:
+  - websecure
+  routes:
+  - match: Host(`mrmserver.collabora`)
+    kind: Rule
+    services:
+    - name: collabora
+      port: 9980
+      scheme: http
+  tls: {}
+
+then /etc/hosts:
+
+100.98.200.45 mrmserver.opencloud
+100.98.200.45 mrmserver.collabora
+
+on hosts:
+same
+windows ->> C:\Windows\System32\drivers\etc\hosts
