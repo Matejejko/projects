@@ -2,8 +2,9 @@ mv html to /services/pomodoro/
 				index.html
 				style.css
 				script.js
+				favicon.ico
 
-there do: sudo kubectl create configmap pomodoro-web --from-file=index.html --from-file=style.css --from-file=script.js
+there do: create configmap pomodoro-web --from-file=index.html --from-file=style.css --from-file=script.js --from-file=favicon.ico
 
 make a deployment.yaml:
 

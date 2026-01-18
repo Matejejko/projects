@@ -134,9 +134,4 @@ if a error about writing do:
 
 or rm -f /services/opencloud/config/* && rm -Rf /services/opencloud/data/*
 
-opencloud 2.0
-
-git clone https://github.com/opencloud-eu/helm.git
-cd helm/charts/opencloud
-
 
