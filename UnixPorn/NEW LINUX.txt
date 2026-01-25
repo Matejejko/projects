@@ -1,0 +1,48 @@
+NEW LINUX 
+
+DISTRO:
+	Pop!_OS
+	ubuntu
+	cachy OS
+
+window manager / DE:
+	most likely DE:
+		??
+
+Theme Consistency:
+	smt with green probably
+		everforest - dark
+
+lockscreen:
+	SDDM - https://github.com/uiriansan/SilentSDDM
+
+terminal:
+	kitty
+
+taskbar:
+	??
+
+side bar:
+	??
+
+wallpaper changer:
+
+files app:
+
+Notifications:
+	mako????
+
+Compositor and Effects:
+
+explorer:
+	vivaldi
+
+icon themes:
+	??? papirus
+
+text-font:
+	???
+
+calendar:
+	https://github.com/snes19xx/EverCal
+
