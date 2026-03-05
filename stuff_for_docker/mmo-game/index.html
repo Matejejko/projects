@@ -4,13 +4,16 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Realm of Chaos — Browser MMO</title>
+        <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=MedievalSharp&family=Press+Start+2P&display=swap"
+        />
         <style>
             * {
                 margin: 0;
                 padding: 0;
                 box-sizing: border-box;
             }
-            @import url("https://fonts.googleapis.com/css2?family=MedievalSharp&family=Press+Start+2P&display=swap");
             body {
                 background: #0a0a0f;
                 overflow: hidden;
@@ -1388,6 +1391,47 @@
             const minimapCtx = minimapCanvas.getContext("2d");
             const weatherCanvas = document.getElementById("weatherCanvas");
             const weatherCtx = weatherCanvas.getContext("2d");
+
+            // Polyfill for roundRect (not supported in older browsers)
+            if (!CanvasRenderingContext2D.prototype.roundRect) {
+                CanvasRenderingContext2D.prototype.roundRect = function (
+                    x,
+                    y,
+                    w,
+                    h,
+                    radii,
+                ) {
+                    const r =
+                        typeof radii === "number"
+                            ? radii
+                            : Array.isArray(radii)
+                              ? radii[0]
+                              : 0;
+                    if (w < 2 * r) {
+                        const rr = w / 2;
+                        this.moveTo(x + rr, y);
+                        this.arcTo(x + w, y, x + w, y + h, rr);
+                        this.arcTo(x + w, y + h, x, y + h, rr);
+                        this.arcTo(x, y + h, x, y, rr);
+                        this.arcTo(x, y, x + w, y, rr);
+                    } else if (h < 2 * r) {
+                        const rr = h / 2;
+                        this.moveTo(x + rr, y);
+                        this.arcTo(x + w, y, x + w, y + h, rr);
+                        this.arcTo(x + w, y + h, x, y + h, rr);
+                        this.arcTo(x, y + h, x, y, rr);
+                        this.arcTo(x, y, x + w, y, rr);
+                    } else {
+                        this.moveTo(x + r, y);
+                        this.arcTo(x + w, y, x + w, y + h, r);
+                        this.arcTo(x + w, y + h, x, y + h, r);
+                        this.arcTo(x, y + h, x, y, r);
+                        this.arcTo(x, y, x + w, y, r);
+                    }
+                    this.closePath();
+                    return this;
+                };
+            }
 
             canvas.width = window.innerWidth;
             canvas.height = window.innerHeight;
@@ -6787,10 +6831,14 @@
             // ==================== GAME LOOP ====================
             let lastTime = 0;
             function gameLoop(timestamp = 0) {
-                const dt = Math.min((timestamp - lastTime) / 1000, 0.1);
-                lastTime = timestamp;
-                update(dt);
-                render();
+                try {
+                    const dt = Math.min((timestamp - lastTime) / 1000, 0.1);
+                    lastTime = timestamp;
+                    update(dt);
+                    render();
+                } catch (e) {
+                    console.error("Game loop error:", e);
+                }
                 requestAnimationFrame(gameLoop);
             }
         </script>

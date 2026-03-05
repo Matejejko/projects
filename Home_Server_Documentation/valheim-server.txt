@@ -1,0 +1,84 @@
+make /game_servers/valheim
+
+deployment.yaml:
+
+# Source: valheim-k8s/templates/deployment.yaml
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: valheim-server
+
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: valheim-server
+  namespace: valheim-server
+spec:
+  selector:
+    matchLabels:
+      app: valheim-server
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: valheim-server
+    spec:
+      containers:
+      - image: "lloesche/valheim-server:latest"
+        name: valheim-server
+        env:
+        - name: SERVER_NAME
+          value: mrmserver-valheim
+        - name: WORLD_NAME
+          value: nigas-in-world
+        - name: SERVER_PASS
+          value: Heslo123
+        - name: SERVER_PORT
+          value: "2456"
+        ports:
+        - containerPort: 2456
+          name: gameport
+        - containerPort: 2457
+          name: queryport
+        volumeMounts:
+
+        - mountPath: /config
+          name: gamefiles
+
+        resources:
+          {}
+      volumes:
+
+      - name: gamefiles
+        hostPath:
+          path: /game_servers/valheim
+          type: DirectoryOrCreate
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: valheim-server
+  namespace: valheim-server
+spec:
+  ports:
+    - name: gameport
+      port: 2456
+      targetPort: 2456
+      protocol: UDP
+
+    - name: queryport
+      port: 2457
+      targetPort: 2457
+      protocol: UDP
+
+  type: LoadBalancer
+  selector:
+    app: valheim-server
+
+
+

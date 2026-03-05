@@ -1,0 +1,987 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta
+            name="description"
+            content="Matej Papaj — CS Student & Cloud Developer Intern. Portfolio showcasing skills in Linux, cloud, web development and more."
+        />
+        <meta name="author" content="Matej Papaj" />
+        <meta name="theme-color" content="#27ae60" />
+        <title>Matej Papaj — Portfolio</title>
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+        <!-- Header -->
+        <header id="header">
+            <nav class="container header-container">
+                <a
+                    href="https://github.com/Matejejko"
+                    class="logo"
+                    aria-label="GitHub Profile"
+                >
+                    Matej Papaj
+                </a>
+                <button
+                    class="hamburger"
+                    id="hamburger"
+                    aria-label="Toggle navigation"
+                    aria-expanded="false"
+                >
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <ul class="nav-links" id="navLinks">
+                    <li><a class="glitch-text" href="#hero">home</a></li>
+                    <li><a class="glitch-text" href="#about">about</a></li>
+                    <li>
+                        <a class="glitch-text" href="#education">education</a>
+                    </li>
+                    <li>
+                        <a class="glitch-text" href="#experience">experience</a>
+                    </li>
+                    <li><a class="glitch-text" href="#skills">skills</a></li>
+                    <li>
+                        <a class="glitch-text" href="#languages">languages</a>
+                    </li>
+                    <li>
+                        <a class="glitch-text" href="#projects">projects</a>
+                    </li>
+                    <li><a class="glitch-text" href="#contact">contact</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <!-- Hero Section -->
+        <section id="hero">
+            <video class="hero-bg-video" autoplay loop muted playsinline>
+                <source src="wpV.mp4" type="video/mp4" />
+            </video>
+            <div class="hero-overlay"></div>
+            <article class="container hero-content">
+                <div class="hero-text">
+                    <p class="hero-greeting">Hi, I'm</p>
+                    <h1>Matej Papaj</h1>
+                    <h3 class="typing-wrapper">
+                        <span id="typingText"></span
+                        ><span class="cursor">|</span>
+                    </h3>
+                    <p class="hero-description">
+                        Passionate about technology, cloud infrastructure, and
+                        automation. Computer Science student in a dual program
+                        with Deutsche Telekom, combining academic theory with
+                        hands-on industry experience.
+                    </p>
+                    <div class="hero-buttons">
+                        <a href="#contact" class="btn btn-primary"
+                            >Get In Touch</a
+                        >
+                        <a href="#projects" class="btn btn-outline"
+                            >View Projects</a
+                        >
+                    </div>
+                </div>
+                <img
+                    class="profile-picture"
+                    src="me.jpg"
+                    alt="Matej Papaj — profile photo"
+                />
+            </article>
+            <!-- Scroll down arrow -->
+            <div class="scroll-down" aria-hidden="true">
+                <span>Scroll Down</span>
+                <svg
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                >
+                    <path
+                        d="M12 5V19M12 19L5 12M12 19L19 12"
+                        stroke="#27ae60"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                    />
+                </svg>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about">
+            <article class="container about-content">
+                <h2 class="glitch">About Me</h2>
+                <div class="about-grid">
+                    <div class="about-text">
+                        <p>
+                            Hi! I'm Matej, a computer science student with an
+                            economics background from high school, which gives
+                            me a unique perspective on how technology intersects
+                            with business. I first got into tech by learning
+                            HTML and CSS, building simple websites and getting
+                            curious about how systems work under the hood.
+                        </p>
+                        <p>
+                            Today, I study computer science in a dual program at
+                            Deutsche Telekom, combining theory with hands-on
+                            practice. My main focus is on Linux and cloud
+                            technologies — I enjoy exploring how infrastructure,
+                            automation, and scalability come together to support
+                            modern applications. I'm driven by the challenge of
+                            solving real problems with efficient and reliable
+                            solutions.
+                        </p>
+                        <p>
+                            Outside of tech, I enjoy playing games, learning new
+                            languages, and discovering fresh perspectives from
+                            different cultures. I'm always eager to grow my
+                            skills, collaborate with others, and take on
+                            projects that push me forward both personally and
+                            professionally.
+                        </p>
+                    </div>
+                    <div class="about-highlights">
+                        <div class="highlight-card">
+                            <span class="highlight-number" data-target="2"
+                                >0</span
+                            >
+                            <span class="highlight-label">Years in IT</span>
+                        </div>
+                        <div class="highlight-card">
+                            <span class="highlight-number" data-target="5"
+                                >0</span
+                            >
+                            <span class="highlight-label">Projects Built</span>
+                        </div>
+                        <div class="highlight-card">
+                            <span class="highlight-number" data-target="3"
+                                >0</span
+                            >
+                            <span class="highlight-label"
+                                >Languages Spoken</span
+                            >
+                        </div>
+                    </div>
+                </div>
+            </article>
+        </section>
+
+        <!-- Education Section -->
+        <section id="education" class="container">
+            <article>
+                <h2 class="glitch">Education</h2>
+                <main class="timeline">
+                    <aside class="timeline-item">
+                        <div class="timeline-content">
+                            <h3>Dual Education in Computer Science</h3>
+                            <h4>
+                                Deutsche Telekom Systems Solutions Slovakia,
+                                Kosice
+                            </h4>
+                            <p>
+                                Combining academic studies with practical
+                                know-how at a major tech company. Hands-on
+                                experience with programming, scripting,
+                                networking, cloud platforms, operating systems,
+                                and more.
+                            </p>
+                            <span class="date">2024 — present</span>
+                        </div>
+                    </aside>
+                    <aside class="timeline-item">
+                        <div class="timeline-content">
+                            <h3>Hotel Academy</h3>
+                            <h4>High School — Spisska Nova Ves</h4>
+                            <p>
+                                Focus on economy, economics, accounting, law,
+                                management, and gastronomy. Built a strong
+                                foundation in business thinking and
+                                communication.
+                            </p>
+                            <span class="date">2020 — 2024</span>
+                        </div>
+                    </aside>
+                </main>
+            </article>
+        </section>
+
+        <!-- Experience Section -->
+        <section id="experience">
+            <article class="container">
+                <h2 class="glitch">Experience</h2>
+                <main class="timeline">
+                    <aside class="timeline-item">
+                        <div class="timeline-content">
+                            <h3>Cloud Developer Intern</h3>
+                            <h4>Deutsche Telekom Systems Solutions Slovakia</h4>
+                            <p>
+                                Working with cloud-based infrastructure and
+                                services. Collaborating with senior engineers on
+                                internal tooling, scripting, and deployment
+                                pipelines.
+                            </p>
+                            <span class="date">May 2025 — present</span>
+                        </div>
+                    </aside>
+                    <aside class="timeline-item">
+                        <div class="timeline-content">
+                            <h3>Wholesaler</h3>
+                            <h4>Kerny S. r. o.</h4>
+                            <p>
+                                Managed client relationships and coordinated
+                                product deliveries across regions. Gained strong
+                                organizational skills, negotiation experience,
+                                and the ability to work independently while
+                                meeting tight deadlines.
+                            </p>
+                            <span class="date">2021 — present</span>
+                        </div>
+                    </aside>
+                    <aside class="timeline-item">
+                        <div class="timeline-content">
+                            <h3>Freelance Web Developer</h3>
+                            <h4>Self-employed</h4>
+                            <p>
+                                Designed and developed websites for small
+                                businesses. Managed project timelines and client
+                                communication from start to delivery.
+                            </p>
+                            <span class="date">2020 — present</span>
+                        </div>
+                    </aside>
+                </main>
+            </article>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills">
+            <article class="container">
+                <h2 class="glitch">Technical Skills</h2>
+                <main class="skills-container">
+                    <div class="skills-category">
+                        <h3>Cloud &amp; Infrastructure</h3>
+                        <div class="skill-item">
+                            <div class="skill-name">
+                                <span>Linux (Arch, CachyOS, Ubuntu)</span
+                                ><span>75%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div
+                                    class="skill-progress"
+                                    data-width="75"
+                                ></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-name">
+                                <span>Docker &amp; Containers</span
+                                ><span>65%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div
+                                    class="skill-progress"
+                                    data-width="65"
+                                ></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-name">
+                                <span>Kubernetes (K3s)</span><span>50%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div
+                                    class="skill-progress"
+                                    data-width="50"
+                                ></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-name">
+                                <span>PowerShell &amp; Bash</span
+                                ><span>60%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div
+                                    class="skill-progress"
+                                    data-width="60"
+                                ></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-name">
+                                <span>Networking (Cisco, VLAN)</span
+                                ><span>55%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div
+                                    class="skill-progress"
+                                    data-width="55"
+                                ></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="skills-category">
+                        <h3>Programming &amp; Web</h3>
+                        <div class="skill-item">
+                            <div class="skill-name">
+                                <span>HTML / CSS</span><span>80%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div
+                                    class="skill-progress"
+                                    data-width="80"
+                                ></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-name">
+                                <span>JavaScript</span><span>60%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div
+                                    class="skill-progress"
+                                    data-width="60"
+                                ></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-name">
+                                <span>Python</span><span>55%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div
+                                    class="skill-progress"
+                                    data-width="55"
+                                ></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-name">
+                                <span>SQL</span><span>45%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div
+                                    class="skill-progress"
+                                    data-width="45"
+                                ></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="skills-category">
+                        <h3>Tools &amp; Workflow</h3>
+                        <div class="skill-item">
+                            <div class="skill-name">
+                                <span>Git &amp; GitHub</span><span>70%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div
+                                    class="skill-progress"
+                                    data-width="70"
+                                ></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-name">
+                                <span>VS Code / Vim</span><span>75%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div
+                                    class="skill-progress"
+                                    data-width="75"
+                                ></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-name">
+                                <span>Windows Server / AD</span><span>55%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div
+                                    class="skill-progress"
+                                    data-width="55"
+                                ></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-name">
+                                <span>AWS (basics)</span><span>35%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div
+                                    class="skill-progress"
+                                    data-width="35"
+                                ></div>
+                            </div>
+                        </div>
+                    </div>
+                </main>
+            </article>
+        </section>
+
+        <!-- Languages Section -->
+        <section id="languages">
+            <div class="container">
+                <h2 class="glitch">Language Skills</h2>
+                <div class="languages-container">
+                    <div class="language-item">
+                        <div class="language-accent"></div>
+                        <div class="language-header">
+                            <div class="language-name">Slovak</div>
+                            <div class="language-level">Native</div>
+                        </div>
+                        <div class="language-progress-container">
+                            <div
+                                class="language-progress-bar"
+                                data-width="100"
+                            ></div>
+                        </div>
+                        <div class="language-description">
+                            Mother tongue with full professional proficiency in
+                            all contexts.
+                        </div>
+                        <div class="language-details">
+                            <span class="language-skill">Reading</span>
+                            <span class="language-skill">Writing</span>
+                            <span class="language-skill">Speaking</span>
+                            <span class="language-skill">Technical</span>
+                        </div>
+                    </div>
+
+                    <div class="language-item">
+                        <div class="language-accent"></div>
+                        <div class="language-header">
+                            <div class="language-name">English</div>
+                            <div class="language-level">
+                                B2 — Upper Intermediate
+                            </div>
+                        </div>
+                        <div class="language-progress-container">
+                            <div
+                                class="language-progress-bar"
+                                data-width="75"
+                            ></div>
+                        </div>
+                        <div class="language-description">
+                            Comfortable in professional and technical
+                            conversations. Can read documentation, write emails,
+                            and present ideas fluently.
+                        </div>
+                        <div class="language-details">
+                            <span class="language-skill">Reading</span>
+                            <span class="language-skill">Writing</span>
+                            <span class="language-skill">Speaking</span>
+                            <span class="language-skill">Technical Docs</span>
+                        </div>
+                    </div>
+
+                    <div class="language-item">
+                        <div class="language-accent"></div>
+                        <div class="language-header">
+                            <div class="language-name">German</div>
+                            <div class="language-level">A2 — Elementary</div>
+                        </div>
+                        <div class="language-progress-container">
+                            <div
+                                class="language-progress-bar"
+                                data-width="30"
+                            ></div>
+                        </div>
+                        <div class="language-description">
+                            Can understand and use basic everyday phrases.
+                            Currently improving through coursework and
+                            self-study.
+                        </div>
+                        <div class="language-details">
+                            <span class="language-skill">Basic Reading</span>
+                            <span class="language-skill">Simple Phrases</span>
+                            <span class="language-skill">Vocabulary</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects">
+            <div class="container">
+                <h2 class="glitch">My Projects</h2>
+                <div class="projects-container">
+                    <!-- Project 1 -->
+                    <div class="project-item">
+                        <div class="project-image">
+                            <svg
+                                width="80"
+                                height="80"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                            >
+                                <rect
+                                    x="2"
+                                    y="3"
+                                    width="20"
+                                    height="14"
+                                    rx="2"
+                                    stroke="#27ae60"
+                                    stroke-width="2"
+                                />
+                                <path
+                                    d="M8 21H16"
+                                    stroke="#27ae60"
+                                    stroke-width="2"
+                                    stroke-linecap="round"
+                                />
+                                <path
+                                    d="M12 17V21"
+                                    stroke="#27ae60"
+                                    stroke-width="2"
+                                    stroke-linecap="round"
+                                />
+                                <path
+                                    d="M7 10L9 12L7 14"
+                                    stroke="#27ae60"
+                                    stroke-width="2"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                />
+                                <path
+                                    d="M12 14H16"
+                                    stroke="#27ae60"
+                                    stroke-width="2"
+                                    stroke-linecap="round"
+                                />
+                            </svg>
+                        </div>
+                        <div class="project-info">
+                            <h3>Portfolio Website</h3>
+                            <p>
+                                A dark-themed personal CV / portfolio site with
+                                glitch text effects, scroll animations, typing
+                                effect, and fully responsive layout. Built from
+                                scratch without frameworks.
+                            </p>
+                            <div class="project-tags">
+                                <span class="project-tag">HTML</span>
+                                <span class="project-tag">CSS</span>
+                                <span class="project-tag">JavaScript</span>
+                            </div>
+                            <a
+                                href="https://github.com/Matejejko"
+                                class="project-link"
+                                target="_blank"
+                                rel="noopener"
+                                >View on GitHub &rarr;</a
+                            >
+                        </div>
+                    </div>
+                    <!-- Project 2 -->
+                    <div class="project-item">
+                        <div class="project-image">
+                            <svg
+                                width="80"
+                                height="80"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                            >
+                                <circle
+                                    cx="12"
+                                    cy="12"
+                                    r="10"
+                                    stroke="#27ae60"
+                                    stroke-width="2"
+                                />
+                                <path
+                                    d="M12 6V12L16 14"
+                                    stroke="#27ae60"
+                                    stroke-width="2"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                />
+                            </svg>
+                        </div>
+                        <div class="project-info">
+                            <h3>Pomodoro Timer</h3>
+                            <p>
+                                A productivity timer web app based on the
+                                Pomodoro Technique, with customizable work/break
+                                intervals and visual progress tracking.
+                            </p>
+                            <div class="project-tags">
+                                <span class="project-tag">JavaScript</span>
+                                <span class="project-tag">HTML</span>
+                                <span class="project-tag">CSS</span>
+                            </div>
+                            <a
+                                href="https://github.com/Matejejko"
+                                class="project-link"
+                                target="_blank"
+                                rel="noopener"
+                                >View on GitHub &rarr;</a
+                            >
+                        </div>
+                    </div>
+                    <!-- Project 3 -->
+                    <div class="project-item">
+                        <div class="project-image">
+                            <svg
+                                width="80"
+                                height="80"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                            >
+                                <path
+                                    d="M4 19.5C4 18.837 4.26339 18.2011 4.73223 17.7322C5.20107 17.2634 5.83696 17 6.5 17H20"
+                                    stroke="#27ae60"
+                                    stroke-width="2"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                />
+                                <path
+                                    d="M6.5 2H20V22H6.5C5.83696 22 5.20107 21.7366 4.73223 21.2678C4.26339 20.7989 4 20.163 4 19.5V4.5C4 3.83696 4.26339 3.20107 4.73223 2.73223C5.20107 2.26339 5.83696 2 6.5 2Z"
+                                    stroke="#27ae60"
+                                    stroke-width="2"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                />
+                            </svg>
+                        </div>
+                        <div class="project-info">
+                            <h3>Home Server &amp; K3s Cluster</h3>
+                            <p>
+                                Self-hosted home server running a K3s Kubernetes
+                                cluster with VPN access, covering deployment,
+                                storage, and networking configuration.
+                            </p>
+                            <div class="project-tags">
+                                <span class="project-tag">K3s</span>
+                                <span class="project-tag">Kubernetes</span>
+                                <span class="project-tag">Docker</span>
+                                <span class="project-tag">Networking</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Project 4 -->
+                    <div class="project-item">
+                        <div class="project-image">
+                            <svg
+                                width="80"
+                                height="80"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                            >
+                                <path
+                                    d="M13 2L3 14H12L11 22L21 10H12L13 2Z"
+                                    stroke="#27ae60"
+                                    stroke-width="2"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                />
+                            </svg>
+                        </div>
+                        <div class="project-info">
+                            <h3>Python Automation Scripts</h3>
+                            <p>
+                                A collection of Python scripts for automating
+                                everyday tasks — grade calculators, PDF
+                                processing, system utilities, and a fake Linux
+                                terminal simulator.
+                            </p>
+                            <div class="project-tags">
+                                <span class="project-tag">Python</span>
+                                <span class="project-tag">Automation</span>
+                                <span class="project-tag">CLI</span>
+                            </div>
+                            <a
+                                href="https://github.com/Matejejko"
+                                class="project-link"
+                                target="_blank"
+                                rel="noopener"
+                                >View on GitHub &rarr;</a
+                            >
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact">
+            <div class="container">
+                <h2 class="glitch">Get In Touch</h2>
+                <div class="contact-container">
+                    <div class="contact-info">
+                        <h3>Contact Information</h3>
+                        <p class="contact-intro">
+                            Feel free to reach out — whether it's for a project,
+                            an opportunity, or just to say hello.
+                        </p>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <svg
+                                    width="20"
+                                    height="20"
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                >
+                                    <path
+                                        d="M22 16.92V19.92C22.0011 20.1985 21.9441 20.4742 21.8325 20.7294C21.7209 20.9845 21.5573 21.2136 21.3521 21.4019C21.1468 21.5901 20.9046 21.7335 20.6407 21.8227C20.3769 21.9119 20.0974 21.9451 19.82 21.92C16.7428 21.5856 13.787 20.5341 11.19 18.85C8.77383 17.3147 6.72534 15.2662 5.19 12.85C3.49998 10.2412 2.44824 7.27099 2.12 4.18C2.09501 3.90347 2.12788 3.62476 2.2165 3.36162C2.30513 3.09849 2.44757 2.85669 2.63477 2.65163C2.82196 2.44656 3.04981 2.28271 3.30379 2.17053C3.55778 2.05834 3.83234 2.00026 4.11 2H7.11C7.59531 1.99522 8.06579 2.16708 8.43376 2.48353C8.80173 2.79999 9.04208 3.23945 9.11 3.72C9.23651 4.68007 9.47141 5.62273 9.81 6.53C9.94454 6.88792 9.97366 7.27691 9.8939 7.65088C9.81415 8.02485 9.62886 8.36811 9.36 8.64L8.09 9.91C9.51356 12.4135 11.5865 14.4864 14.09 15.91L15.36 14.64C15.6319 14.3711 15.9752 14.1858 16.3491 14.1061C16.7231 14.0263 17.1121 14.0555 17.47 14.19C18.3773 14.5286 19.3199 14.7635 20.28 14.89C20.7658 14.9585 21.2094 15.2032 21.5265 15.5775C21.8437 15.9518 22.0122 16.4296 22 16.92Z"
+                                        stroke="#121212"
+                                        stroke-width="2"
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                    />
+                                </svg>
+                            </div>
+                            <div>
+                                <strong>Phone:</strong>
+                                <p>+421 949 875 081</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <svg
+                                    width="20"
+                                    height="20"
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                >
+                                    <path
+                                        d="M4 4H20C21.1 4 22 4.9 22 6V18C22 19.1 21.1 20 20 20H4C2.9 20 2 19.1 2 18V6C2 4.9 2.9 4 4 4Z"
+                                        stroke="#121212"
+                                        stroke-width="2"
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                    />
+                                    <path
+                                        d="M22 6L12 13L2 6"
+                                        stroke="#121212"
+                                        stroke-width="2"
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                    />
+                                </svg>
+                            </div>
+                            <div>
+                                <strong>Email:</strong>
+                                <p>maturopapaj2@gmail.com</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <svg
+                                    width="20"
+                                    height="20"
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                >
+                                    <path
+                                        d="M21 10C21 17 12 23 12 23C12 23 3 17 3 10C3 7.61305 3.94821 5.32387 5.63604 3.63604C7.32387 1.94821 9.61305 1 12 1C14.3869 1 16.6761 1.94821 18.364 3.63604C20.0518 5.32387 21 7.61305 21 10Z"
+                                        stroke="#121212"
+                                        stroke-width="2"
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                    />
+                                    <path
+                                        d="M12 13C13.6569 13 15 11.6569 15 10C15 8.34315 13.6569 7 12 7C10.3431 7 9 8.34315 9 10C9 11.6569 10.3431 13 12 13Z"
+                                        stroke="#121212"
+                                        stroke-width="2"
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                    />
+                                </svg>
+                            </div>
+                            <div>
+                                <strong>Location:</strong>
+                                <p>Kosice / Spisska Nova Ves, Slovakia</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <svg
+                                    width="20"
+                                    height="20"
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                >
+                                    <path
+                                        d="M9 19C4 20.5 4 16.5 2 16M16 22V18.13C16.0375 17.6532 15.9731 17.1738 15.811 16.7238C15.6489 16.2738 15.3929 15.8634 15.06 15.52C18.2 15.17 21.5 13.98 21.5 8.52C21.4997 7.12383 20.9627 5.7812 20 4.77C20.4559 3.54851 20.4236 2.19835 19.91 1C19.91 1 18.73 0.65 16 2.48C13.708 1.85882 11.292 1.85882 9 2.48C6.27 0.65 5.09 1 5.09 1C4.57638 2.19835 4.54414 3.54851 5 4.77C4.03013 5.7887 3.49252 7.14346 3.5 8.55C3.5 13.97 6.8 15.16 9.94 15.55C9.611 15.89 9.35726 16.2954 9.19531 16.7399C9.03335 17.1844 8.96681 17.6581 9 18.13V22"
+                                        stroke="#121212"
+                                        stroke-width="2"
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                    />
+                                </svg>
+                            </div>
+                            <div>
+                                <strong>GitHub:</strong>
+                                <p>
+                                    <a
+                                        href="https://github.com/Matejejko"
+                                        target="_blank"
+                                        rel="noopener"
+                                        >@Matejejko</a
+                                    >
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="contact-form">
+                        <h3>Send Me a Message</h3>
+                        <form id="contactForm">
+                            <div class="form-group">
+                                <label for="name">Name</label>
+                                <input
+                                    type="text"
+                                    id="name"
+                                    name="name"
+                                    placeholder="Your name"
+                                    required
+                                />
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input
+                                    type="email"
+                                    id="email"
+                                    name="email"
+                                    placeholder="your@email.com"
+                                    required
+                                />
+                            </div>
+                            <div class="form-group">
+                                <label for="subject">Subject</label>
+                                <input
+                                    type="text"
+                                    id="subject"
+                                    name="subject"
+                                    placeholder="What's this about?"
+                                    required
+                                />
+                            </div>
+                            <div class="form-group">
+                                <label for="message">Message</label>
+                                <textarea
+                                    id="message"
+                                    name="message"
+                                    placeholder="Write your message..."
+                                    required
+                                ></textarea>
+                            </div>
+                            <button type="submit" class="submit-btn">
+                                <span>Send Message</span>
+                                <svg
+                                    width="20"
+                                    height="20"
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                >
+                                    <path
+                                        d="M22 2L11 13"
+                                        stroke="currentColor"
+                                        stroke-width="2"
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                    />
+                                    <path
+                                        d="M22 2L15 22L11 13L2 9L22 2Z"
+                                        stroke="currentColor"
+                                        stroke-width="2"
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                    />
+                                </svg>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer>
+            <div class="container footer-content">
+                <div class="footer-name">Matej Papaj</div>
+                <p>
+                    CS Student &middot; Cloud Developer Intern &middot; Tech
+                    Enthusiast
+                </p>
+                <ul class="footer-links">
+                    <li>
+                        <a
+                            href="https://github.com/Matejejko"
+                            title="GitHub"
+                            target="_blank"
+                            rel="noopener"
+                        >
+                            <svg
+                                width="24"
+                                height="24"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                            >
+                                <path
+                                    d="M9 19C4 20.5 4 16.5 2 16M16 22V18.13C16.0375 17.6532 15.9731 17.1738 15.811 16.7238C15.6489 16.2738 15.3929 15.8634 15.06 15.52C18.2 15.17 21.5 13.98 21.5 8.52C21.4997 7.12383 20.9627 5.7812 20 4.77C20.4559 3.54851 20.4236 2.19835 19.91 1C19.91 1 18.73 0.65 16 2.48C13.708 1.85882 11.292 1.85882 9 2.48C6.27 0.65 5.09 1 5.09 1C4.57638 2.19835 4.54414 3.54851 5 4.77C4.03013 5.7887 3.49252 7.14346 3.5 8.55C3.5 13.97 6.8 15.16 9.94 15.55C9.611 15.89 9.35726 16.2954 9.19531 16.7399C9.03335 17.1844 8.96681 17.6581 9 18.13V22"
+                                    stroke="#e0e0e0"
+                                    stroke-width="2"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                />
+                            </svg>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" title="LinkedIn">
+                            <svg
+                                width="24"
+                                height="24"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                            >
+                                <path
+                                    d="M16 8C17.5913 8 19.1174 8.63214 20.2426 9.75736C21.3679 10.8826 22 12.4087 22 14V21H18V14C18 13.4696 17.7893 12.9609 17.4142 12.5858C17.0391 12.2107 16.5304 12 16 12C15.4696 12 14.9609 12.2107 14.5858 12.5858C14.2107 12.9609 14 13.4696 14 14V21H10V14C10 12.4087 10.6321 10.8826 11.7574 9.75736C12.8826 8.63214 14.4087 8 16 8Z"
+                                    stroke="#e0e0e0"
+                                    stroke-width="2"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                />
+                                <path
+                                    d="M6 9H2V21H6V9Z"
+                                    stroke="#e0e0e0"
+                                    stroke-width="2"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                />
+                                <path
+                                    d="M4 6C5.10457 6 6 5.10457 6 4C6 2.89543 5.10457 2 4 2C2.89543 2 2 2.89543 2 4C2 5.10457 2.89543 6 4 6Z"
+                                    stroke="#e0e0e0"
+                                    stroke-width="2"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                />
+                            </svg>
+                        </a>
+                    </li>
+                </ul>
+                <p class="copyright">
+                    &copy; 2026 Matej Papaj. All rights reserved.
+                </p>
+            </div>
+        </footer>
+
+        <script src="script.js"></script>
+    </body>
+</html>
