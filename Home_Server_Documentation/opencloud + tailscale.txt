@@ -1,3 +1,0 @@
-opencloud + tailscale
-
-change index and dopleyment ips to tailscale ips
