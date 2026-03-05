@@ -1,3 +1,7 @@
+check:
+https://github.com/Addyvan/valheim-k8s
+https://www.valheimgame.com/support/a-guide-to-dedicated-servers/
+
 make /game_servers/valheim
 
 deployment.yaml:
